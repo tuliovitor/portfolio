@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tulio Vítor — Desenvolvedor Front-End</title>
+    <meta name="description"
+        content="Portfólio de Tulio Vítor, desenvolvedor front-end em formação, buscando primeiro estágio. Projetos criativos com HTML, CSS e JavaScript." />
+    <meta name="author" content="Tulio Vítor" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
+        rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <!-- ===== PRELOADER ===== -->
+    <div id="preloader">
+        <img src="assets/tv-logo-preloader-branca.svg" alt="TV Logo" id="preloader-logo" />
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header id="header" class="header-light">
+        <nav class="nav-container">
+            <div class="nav-left">
+                <a href="#hero" class="nav-link">Início</a>
+                <a href="#projetos" class="nav-link">Projetos</a>
+            </div>
+
+            <a href="#hero" class="nav-logo" id="nav-logo">
+                <img src="assets/tv-logo-preloader-branca.svg" alt="TV" class="logo-white" />
+                <img src="assets/tv-logo-preloader-preta-v2.svg" alt="TV" class="logo-dark" />
+            </a>
+
+            <div class="nav-right">
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#contato" class="nav-link">Contato</a>
+                <a href="#projetos" class="btn-nav btn-nav-primary">
+                    <span class="btn-text-top">Ver Projetos</span>
+                    <span class="btn-text-bottom">Ver Projetos</span>
+                </a>
+                <a href="https://linkedin.com/in/tuliovitor" target="_blank" rel="noopener"
+                    class="btn-nav btn-nav-secondary">
+                    <span class="btn-text-top">Vamos conversar ↗</span>
+                    <span class="btn-text-bottom">Manda um Oi ↗</span>
+                </a>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#hero" class="mobile-link">Início</a>
+            <a href="#projetos" class="mobile-link">Projetos</a>
+            <a href="#sobre" class="mobile-link">Sobre</a>
+            <a href="#contato" class="mobile-link">Contato</a>
+            <a href="#projetos" class="mobile-link mobile-cta">Ver Projetos ↗</a>
+        </div>
+    </header>
+
+
+    <!-- ===== SMOOTH WRAPPER ===== -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- ===== HERO ===== -->
+            <section id="hero">
+                <canvas id="particles-canvas"></canvas>
+
+                <!-- Planeta (canto superior direito) -->
+                <div class="hero-planet" data-speed="0.9">
+                    <img src="assets/code-planet.png" alt="Code Planet" loading="eager" />
+                </div>
+
+                <!-- Astronauta (canto inferior esquerdo) -->
+                <div class="hero-astronaut" data-speed="1.1">
+                    <div class="hero-star-glow">
+                        <svg viewBox="0 0 40 40" width="36" height="36">
+                            <path d="M20 0 L22.5 17.5 L40 20 L22.5 22.5 L20 40 L17.5 22.5 L0 20 L17.5 17.5 Z"
+                                fill="#FCD34D" />
+                        </svg>
+                    </div>
+                    <img src="assets/tulio-astro.jpeg" alt="Tulio Astronauta" loading="eager" />
+                </div>
+
+                <!-- Texto Central -->
+                <div class="hero-content">
+                    <div class="hero-badge" id="hero-badge">
+                        <span class="badge-dot"></span>
+                        Disponível para estágio ✦
+                    </div>
+
+                    <h1 class="hero-title" id="hero-title">
+                        Olá, eu sou<br />
+                        <span class="hero-name">Tulio Vítor</span>
+                    </h1>
+
+                    <p class="hero-subtitle" id="hero-subtitle">
+                        Desenvolvedor Front-End<br />explorando o universo digital.
+                    </p>
+
+                    <p class="hero-text" id="hero-text">
+                        Transformando ideias em interfaces no universo do front-end.<br />
+                        Estudante do 3º ano, apaixonado por código e design.
+                    </p>
+
+                    <div class="hero-buttons" id="hero-buttons">
+                        <a href="#projetos" class="btn btn-primary" id="btn-ver-projetos">
+                            <span class="btn-text-top">Ver Projetos</span>
+                            <span class="btn-text-bottom">Vamos lá</span>
+                        </a>
+                        <a href="#contato" class="btn btn-secondary" id="btn-conversar">
+                            <span class="btn-text-top">Vamos conversar!</span>
+                            <span class="btn-text-bottom">Manda um Oi!</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Foto Formal (abaixo do texto, canto direito) -->
+                <div class="hero-photo" data-speed="1.05">
+                    <img src="https://drive.google.com/uc?export=view&id=1I0fkKkDXIYSVFhYWb3M9cIJ9CLGXni33"
+                        alt="Tulio Vítor" loading="eager" />
+                </div>
+
+                <!-- Sparkles decorativos -->
+                <div class="sparkle sparkle-1">✦</div>
+                <div class="sparkle sparkle-2">✦</div>
+                <div class="sparkle sparkle-3">✦</div>
+                <div class="sparkle sparkle-4">✦</div>
+
+                <!-- Scroll indicator -->
+                <div class="scroll-indicator" id="scroll-indicator">
+                    <span>scroll</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </section>
+
+            <!-- ===== PROJETOS ===== -->
+            <section id="projetos">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">portfólio</span>
+                        <h2 class="section-title" id="projects-title">Melhores Projetos</h2>
+                    </div>
+
+                    <div class="projects-grid" id="projects-grid">
+
+                        <!-- Card 1 -->
+                        <div class="project-card" data-project="0" tabindex="0" role="button"
+                            aria-label="Ver projeto Stranger Things Experience">
+                            <div class="card-img-wrapper">
+                                <img src="assets/mockup-projeto01.png" alt="Stranger Things Experience"
+                                    loading="lazy" />
+                                <div class="card-overlay">
+                                    <div class="card-info">
+                                        <span class="card-name">Stranger Things</span>
+                                        <div class="card-arrow">
+                                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="7" y1="17" x2="17" y2="7" />
+                                                <polyline points="7 7 17 7 17 17" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="project-card" data-project="1" tabindex="0" role="button"
+                            aria-label="Ver projeto Beach 085">
+                            <div class="card-img-wrapper">
+                                <img src="assets/mockup-projeto02.png" alt="Beach 085" loading="lazy" />
+                                <div class="card-overlay">
+                                    <div class="card-info">
+                                        <span class="card-name">Beach 085</span>
+                                        <div class="card-arrow">
+                                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="7" y1="17" x2="17" y2="7" />
+                                                <polyline points="7 7 17 7 17 17" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="project-card" data-project="2" tabindex="0" role="button"
+                            aria-label="Ver projeto TechStore">
+                            <div class="card-img-wrapper">
+                                <img src="assets/mockup-projeto03.png" alt="TechStore" loading="lazy" />
+                                <div class="card-overlay">
+                                    <div class="card-info">
+                                        <span class="card-name">TechStore</span>
+                                        <div class="card-arrow">
+                                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="7" y1="17" x2="17" y2="7" />
+                                                <polyline points="7 7 17 7 17 17" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="project-card" data-project="3" tabindex="0" role="button"
+                            aria-label="Ver projeto Linkador Pessoal">
+                            <div class="card-img-wrapper">
+                                <img src="assets/mockup-projeto04.png" alt="Linkador Pessoal" loading="lazy" />
+                                <div class="card-overlay">
+                                    <div class="card-info">
+                                        <span class="card-name">Linkador Pessoal</span>
+                                        <div class="card-arrow">
+                                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="7" y1="17" x2="17" y2="7" />
+                                                <polyline points="7 7 17 7 17 17" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="project-card" data-project="4" tabindex="0" role="button"
+                            aria-label="Ver projeto Player de Música">
+                            <div class="card-img-wrapper">
+                                <img src="assets/mockup-projeto05.png" alt="Player de Música" loading="lazy" />
+                                <div class="card-overlay">
+                                    <div class="card-info">
+                                        <span class="card-name">Player de Música</span>
+                                        <div class="card-arrow">
+                                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="7" y1="17" x2="17" y2="7" />
+                                                <polyline points="7 7 17 7 17 17" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="project-card" data-project="5" tabindex="0" role="button"
+                            aria-label="Ver projeto Criador Mágico IA">
+                            <div class="card-img-wrapper">
+                                <img src="assets/mockup-projeto06.png" alt="Criador Mágico IA" loading="lazy" />
+                                <div class="card-overlay">
+                                    <div class="card-info">
+                                        <span class="card-name">Criador Mágico IA</span>
+                                        <div class="card-arrow">
+                                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="7" y1="17" x2="17" y2="7" />
+                                                <polyline points="7 7 17 7 17 17" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /projects-grid -->
+                </div><!-- /container -->
+            </section>
+
+            <!-- ===== SOBRE MIM ===== -->
+            <section id="sobre">
+                <div class="container">
+                    <div class="about-grid">
+
+                        <!-- Coluna Esquerda -->
+                        <div class="about-left">
+                            <span class="section-tag">quem sou</span>
+                            <h2 class="about-title" id="about-title">Sobre Mim</h2>
+                            <p class="about-text">
+                                Sou Tulio Vítor, desenvolvedor front-end de Fortaleza, Ceará.
+                                Estou no 3º ano do ensino médio e busco meu primeiro estágio na área.
+                                Apaixonado por transformar ideias em interfaces bonitas e funcionais,
+                                acredito que bom código e bom design andam juntos.
+                            </p>
+
+                            <div class="about-actions">
+                                <a href="https://drive.google.com/uc?export=view&id=10TErPcvw00JIwZ4hZ94Fi-ohHk-k4bkY"
+                                    download="curriculo-tulio-vitor.pdf" class="btn btn-dark" target="_blank"
+                                    id="btn-curriculo">
+                                    <span class="btn-text-top">
+                                        Baixar Currículo
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                                            <polyline points="7 10 12 15 17 10" />
+                                            <line x1="12" y1="15" x2="12" y2="3" />
+                                        </svg>
+                                    </span>
+                                    <span class="btn-text-bottom">
+                                        Baixar Currículo
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                                            <polyline points="7 10 12 15 17 10" />
+                                            <line x1="12" y1="15" x2="12" y2="3" />
+                                        </svg>
+                                    </span>
+                                </a>
+
+                                <div class="social-links">
+                                    <a href="https://linkedin.com/in/tuliovitor" target="_blank" rel="noopener"
+                                        class="social-icon" aria-label="LinkedIn">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                            <path
+                                                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                                            <circle cx="4" cy="4" r="2" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://instagram.com/tvitorkkj" target="_blank" rel="noopener"
+                                        class="social-icon" aria-label="Instagram">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+                                            stroke="currentColor" stroke-width="1.8">
+                                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                            <circle cx="12" cy="12" r="4.5" />
+                                            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://github.com/tuliovitor" target="_blank" rel="noopener"
+                                        class="social-icon" aria-label="GitHub">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                            <path
+                                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Carrossel de Fotos -->
+                            <div class="photo-carousel-wrapper">
+                                <div class="photo-carousel" id="photo-carousel">
+                                    <div class="photo-track" id="photo-track">
+                                        <div class="photo-slide"><img src="assets/tulio-casual.jpg" alt="Tulio casual"
+                                                loading="lazy" /></div>
+                                        <div class="photo-slide"><img src="assets/tulio-casual2.jpg"
+                                                alt="Tulio casual v2" loading="lazy" /></div>
+                                        <div class="photo-slide"><img src="assets/setup.jpg" alt="Setup"
+                                                loading="lazy" /></div>
+                                        <div class="photo-slide"><img src="assets/futebol.jpg" alt="Futebol"
+                                                loading="lazy" /></div>
+                                        <div class="photo-slide"><img src="assets/netflix.jpg" alt="Netflix"
+                                                loading="lazy" /></div>
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" id="photo-dots">
+                                    <button class="dot active" data-index="0"></button>
+                                    <button class="dot" data-index="1"></button>
+                                    <button class="dot" data-index="2"></button>
+                                    <button class="dot" data-index="3"></button>
+                                    <button class="dot" data-index="4"></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coluna Direita -->
+                        <div class="about-right">
+                            <h3 class="about-right-title">Minha História</h3>
+                            <p class="about-history">
+                                Comecei a me interessar por programação ainda no primeiro ano do ensino médio,
+                                quando percebi que podia criar coisas reais com código. Desde então, mergulhei
+                                no front-end, estudando HTML, CSS e JavaScript de forma autodidata e em cursos online.
+                                Cada projeto foi um passo a mais nessa jornada — e essa jornada ainda está começando.
+                            </p>
+
+                            <div class="skills-section">
+                                <h4 class="skills-title">Competências</h4>
+                                <div class="skills-list">
+                                    <div class="skill-item">
+                                        <div class="skill-header"><span class="skill-name">HTML</span><span
+                                                class="skill-percent">100%</span></div>
+                                        <div class="skill-bar-track">
+                                            <div class="skill-bar-fill" data-width="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-header"><span class="skill-name">CSS</span><span
+                                                class="skill-percent">100%</span></div>
+                                        <div class="skill-bar-track">
+                                            <div class="skill-bar-fill" data-width="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-header"><span class="skill-name">JavaScript</span><span
+                                                class="skill-percent">80%</span></div>
+                                        <div class="skill-bar-track">
+                                            <div class="skill-bar-fill" data-width="80"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-header"><span class="skill-name">SQL</span><span
+                                                class="skill-percent">60%</span></div>
+                                        <div class="skill-bar-track">
+                                            <div class="skill-bar-fill" data-width="60"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-header"><span class="skill-name">Java</span><span
+                                                class="skill-percent">60%</span></div>
+                                        <div class="skill-bar-track">
+                                            <div class="skill-bar-fill" data-width="60"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <div class="skill-header"><span class="skill-name">Git / GitHub</span><span
+                                                class="skill-percent">40%</span></div>
+                                        <div class="skill-bar-track">
+                                            <div class="skill-bar-fill" data-width="40"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="about-quote">"Não seja o problema, seja a solução 👻"</p>
+                            </div>
+                        </div>
+
+                    </div><!-- /about-grid -->
+                </div><!-- /container -->
+            </section>
+
+            <!-- ===== CTA ===== -->
+            <section id="contato">
+                <canvas id="cta-particles"></canvas>
+                <div class="container cta-inner">
+                    <span class="cta-tag">próximo passo</span>
+                    <h2 class="cta-title">Vamos construir algo<br /><em>incrível</em> juntos.</h2>
+                    <p class="cta-text">
+                        Estou disponível para estágios e oportunidades.<br />
+                        Se você chegou até aqui, já sabe que vale a pena bater um papo.
+                    </p>
+                    <a href="https://linkedin.com/in/tuliovitor" target="_blank" rel="noopener"
+                        class="btn btn-primary btn-cta" id="btn-cta">
+                        <span class="btn-text-top">Vamos conversar ↗</span>
+                        <span class="btn-text-bottom">Manda um Oi ↗</span>
+                    </a>
+
+                    <!-- Estrelas decorativas -->
+                    <div class="cta-sparkle cta-s1">✦</div>
+                    <div class="cta-sparkle cta-s2">✦</div>
+                    <div class="cta-sparkle cta-s3">✦</div>
+                    <div class="cta-planet">
+                        <img src="assets/code-planet-dark.png" alt="" aria-hidden="true" loading="lazy" />
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== FOOTER ===== -->
+            <footer id="footer">
+                <div class="container footer-inner">
+                    <div class="footer-logo">
+                        <img src="assets/tv-logo-preloader-branca.svg" alt="TV" />
+                    </div>
+
+                    <nav class="footer-nav">
+                        <a href="#hero">Início</a>
+                        <a href="#projetos">Projetos</a>
+                        <a href="#sobre">Sobre</a>
+                        <a href="#contato">Contato</a>
+                    </nav>
+
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/in/tuliovitor" target="_blank" rel="noopener"
+                            aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                <path
+                                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/tvitorkkj" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <rect x="2" y="2" width="20" height="20" rx="5" />
+                                <circle cx="12" cy="12" r="4.5" />
+                                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                            </svg>
+                        </a>
+                        <a href="https://github.com/tuliovitor" target="_blank" rel="noopener" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-line"></div>
+                    <p>© 2026 · Tulio Vítor. Feito com carinho por ele mesmo :)</p>
+                </div>
+            </footer>
+
+        </div><!-- /smooth-content -->
+    </div><!-- /smooth-wrapper -->
+
+    <!-- ===== MODAL ===== -->
+    <div id="modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Detalhes do projeto">
+        <div class="modal-container" id="modal-container">
+            <button class="modal-close" id="modal-close" aria-label="Fechar modal">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+
+            <div class="modal-inner">
+                <!-- Carrossel do Modal -->
+                <div class="modal-carousel-section">
+                    <div class="modal-carousel" id="modal-carousel">
+                        <div class="modal-slides" id="modal-slides"></div>
+                    </div>
+                    <div class="modal-nav">
+                        <button class="modal-prev" id="modal-prev" aria-label="Anterior">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                                fill="none">
+                                <polyline points="15 18 9 12 15 6" />
+                            </svg>
+                        </button>
+                        <div class="modal-dots" id="modal-dots"></div>
+                        <button class="modal-next" id="modal-next" aria-label="Próximo">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                                fill="none">
+                                <polyline points="9 18 15 12 9 6" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Info do Modal -->
+                <div class="modal-info">
+                    <h3 class="modal-title" id="modal-title"></h3>
+                    <div class="modal-tags" id="modal-tags"></div>
+                    <p class="modal-desc" id="modal-desc"></p>
+                    <div class="modal-actions">
+                        <a href="#" target="_blank" rel="noopener" class="btn btn-primary btn-modal" id="modal-live">
+                            <span class="btn-text-top">Ver ao vivo ↗</span>
+                            <span class="btn-text-bottom">Ver ao vivo ↗</span>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" class="btn btn-outline btn-modal" id="modal-github">
+                            <span class="btn-text-top">Ver código</span>
+                            <span class="btn-text-bottom">Ver código</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GSAP (free CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <!-- Lenis (smooth scroll) -->
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
