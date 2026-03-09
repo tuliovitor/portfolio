@@ -66,7 +66,7 @@ const PROJECTS = [
         ],
         url: 'https://tuliovitor.github.io/criador-magico-ia',
         github: 'https://github.com/tuliovitor/criador-magico-ia',
-        tech: ['HTML', 'CSS', 'JavaScript', 'IA'],
+        tech: ['HTML', 'CSS', 'JavaScript', 'N8N'],
         desc: 'Aplicação web com inteligência artificial integrada que gera animações CSS a partir de descrições em texto. Editor de código ao vivo com preview em tempo real e sugestões automáticas.'
     }
 ];
