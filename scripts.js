@@ -12,7 +12,7 @@ const PROJECTS = [
     {
         name: 'Stranger Things Experience',
         images: [
-            'assets/mockup-projeto01.png'
+            'assets/mockup-projeto01.webp'
         ],
         url: 'https://tuliovitor.github.io/stranger-things',
         github: 'https://github.com/tuliovitor/stranger-things',
@@ -22,7 +22,7 @@ const PROJECTS = [
     {
         name: 'Beach 085 Coast Company',
         images: [
-            'assets/mockup-projeto02.png'
+            'assets/mockup-projeto02.webp'
         ],
         url: 'https://tuliovitor.github.io/beach-085-site',
         github: 'https://github.com/tuliovitor/beach-085-site',
@@ -32,7 +32,7 @@ const PROJECTS = [
     {
         name: 'TechStore',
         images: [
-            'assets/mockup-projeto03.png'
+            'assets/mockup-projeto03.webp'
         ],
         url: 'https://tuliovitor.github.io/tech-store',
         github: 'https://github.com/tuliovitor/tech-store',
@@ -42,7 +42,7 @@ const PROJECTS = [
     {
         name: 'Linkador Pessoal',
         images: [
-            'assets/mockup-projeto04.png'
+            'assets/mockup-projeto04.webp'
         ],
         url: 'https://tuliovitor.github.io/links-portfolio',
         github: 'https://github.com/tuliovitor/links-portfolio',
@@ -52,7 +52,7 @@ const PROJECTS = [
     {
         name: 'Player de Música',
         images: [
-            'assets/mockup-projeto05.png'
+            'assets/mockup-projeto05.webp'
         ],
         url: 'https://tuliovitor.github.io/player-de-musica',
         github: 'https://github.com/tuliovitor/player-de-musica',
@@ -62,7 +62,7 @@ const PROJECTS = [
     {
         name: 'Criador Mágico com IA',
         images: [
-            'assets/mockup-projeto06.png'
+            'assets/mockup-projeto06.webp'
         ],
         url: 'https://tuliovitor.github.io/criador-magico-ia',
         github: 'https://github.com/tuliovitor/criador-magico-ia',
