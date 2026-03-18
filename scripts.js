@@ -12,7 +12,7 @@ const PROJECTS = [
     {
         name: 'Stranger Things Experience',
         images: [
-            'assets/mockup-projeto01.png'
+            'assets/mockup-projeto01.webp'
         ],
         url: 'https://tuliovitor.github.io/stranger-things',
         github: 'https://github.com/tuliovitor/stranger-things',
@@ -22,7 +22,7 @@ const PROJECTS = [
     {
         name: 'Beach 085 Coast Company',
         images: [
-            'assets/mockup-projeto02.png'
+            'assets/mockup-projeto02.webp'
         ],
         url: 'https://tuliovitor.github.io/beach-085-site',
         github: 'https://github.com/tuliovitor/beach-085-site',
@@ -32,7 +32,7 @@ const PROJECTS = [
     {
         name: 'TechStore',
         images: [
-            'assets/mockup-projeto03.png'
+            'assets/mockup-projeto03.webp'
         ],
         url: 'https://tuliovitor.github.io/tech-store',
         github: 'https://github.com/tuliovitor/tech-store',
@@ -42,7 +42,7 @@ const PROJECTS = [
     {
         name: 'Linkador Pessoal',
         images: [
-            'assets/mockup-projeto04.png'
+            'assets/mockup-projeto04.webp'
         ],
         url: 'https://tuliovitor.github.io/links-portfolio',
         github: 'https://github.com/tuliovitor/links-portfolio',
@@ -52,7 +52,7 @@ const PROJECTS = [
     {
         name: 'Player de Música',
         images: [
-            'assets/mockup-projeto05.png'
+            'assets/mockup-projeto05.webp'
         ],
         url: 'https://tuliovitor.github.io/player-de-musica',
         github: 'https://github.com/tuliovitor/player-de-musica',
@@ -62,11 +62,11 @@ const PROJECTS = [
     {
         name: 'Criador Mágico com IA',
         images: [
-            'assets/mockup-projeto06.png'
+            'assets/mockup-projeto06.webp'
         ],
         url: 'https://tuliovitor.github.io/criador-magico-ia',
         github: 'https://github.com/tuliovitor/criador-magico-ia',
-        tech: ['HTML', 'CSS', 'JavaScript', 'IA'],
+        tech: ['HTML', 'CSS', 'JavaScript', 'N8N'],
         desc: 'Aplicação web com inteligência artificial integrada que gera animações CSS a partir de descrições em texto. Editor de código ao vivo com preview em tempo real e sugestões automáticas.'
     }
 ];
@@ -78,41 +78,17 @@ const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 /* ───────────────────────────────
-   1. PRELOADER
+   1. PRELOADER (removido — inicializa direto)
 ─────────────────────────────── */
 function initPreloader() {
-    const preloader = $('#preloader');
-    if (!preloader) return;
-
-    document.body.style.overflow = 'hidden';
-
-    window.addEventListener('load', () => {
-        gsap.to(preloader, {
-            opacity: 0,
-            duration: 0.8,
-            delay: 0.6,
-            ease: 'power2.out',
-            onComplete: () => {
-                preloader.style.display = 'none';
-                document.body.style.overflow = '';
-                initHeroAnimations();
-            }
-        });
-    });
-
-    // Fallback if load fires late
-    setTimeout(() => {
-        if (preloader.style.display !== 'none') {
-            gsap.to(preloader, {
-                opacity: 0, duration: 0.6, ease: 'power2.out',
-                onComplete: () => {
-                    preloader.style.display = 'none';
-                    document.body.style.overflow = '';
-                    initHeroAnimations();
-                }
-            });
-        }
-    }, 3500);
+    // Preloader removido para carregamento instantâneo
+    // Hero animations disparam imediatamente
+    document.body.style.overflow = '';
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        initHeroAnimations();
+    } else {
+        window.addEventListener('DOMContentLoaded', initHeroAnimations);
+    }
 }
 
 /* ───────────────────────────────
@@ -155,16 +131,17 @@ function initHeader() {
         const sobreRect = sobre ? sobre.getBoundingClientRect() : null;
         const ctaEl = $('#contato');
         const ctaRect = ctaEl ? ctaEl.getBoundingClientRect() : null;
+        const footerEl = $('#footer');
+        const footerRect = footerEl ? footerEl.getBoundingClientRect() : null;
 
-        // Dark sections: projetos, contato, footer
         const isOnDark =
             (projRect && projRect.top <= 72 && sobreRect && sobreRect.top > 72) ||
-            (ctaRect && ctaRect.top <= 72);
+            (ctaRect && ctaRect.top <= 72) ||
+            (footerRect && footerRect.top <= 72);
 
         if (isOnDark) {
             header.className = 'header-dark header-scrolled';
         } else {
-            // On light sections (hero, sobre)
             const y = window.scrollY;
             header.className = y > 80 ? 'header-light header-scrolled' : 'header-light';
         }
@@ -173,36 +150,65 @@ function initHeader() {
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
 
-    // Smooth nav links
-    $$('.nav-link, .mobile-link, .footer-nav a').forEach(link => {
+    // Função de scroll robusta — usa Lenis se disponível, fallback nativo
+    function scrollToSection(href) {
+        const target = $(href);
+        if (!target) return;
+        if (lenisInstance) {
+            lenisInstance.scrollTo(target, { offset: -72, duration: 1.4 });
+        } else {
+            const top = target.getBoundingClientRect().top + window.scrollY - 72;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+    }
+
+    // Smooth scroll — nav-link desktop
+    $$('.nav-link').forEach(link => {
         link.addEventListener('click', e => {
             const href = link.getAttribute('href');
             if (href && href.startsWith('#')) {
                 e.preventDefault();
-                const target = $(href);
-                if (target) {
-                    lenisInstance
-                        ? lenisInstance.scrollTo(target, { offset: -72, duration: 1.4 })
-                        : target.scrollIntoView({ behavior: 'smooth' });
-                }
-                // Close mobile menu
-                closeMobileMenu();
+                scrollToSection(href);
             }
         });
     });
 
-    // Button anchors
+    // Smooth scroll — mobile-link (menu hambúrguer)
+    // Usa event delegation no menu para não perder elementos adicionados dinamicamente
+    const mobileMenu = $('#mobile-menu');
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', e => {
+            const link = e.target.closest('.mobile-link');
+            if (!link) return;
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                closeMobileMenu();
+                // Pequeno delay para o menu fechar antes de scrollar
+                setTimeout(() => scrollToSection(href), 50);
+            }
+        });
+    }
+
+    // Smooth scroll — footer nav
+    $$('.footer-nav a').forEach(link => {
+        link.addEventListener('click', e => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                scrollToSection(href);
+            }
+        });
+    });
+
+    // btn-nav com âncora (Ver Projetos e similares)
     $$('.btn-nav').forEach(btn => {
         btn.addEventListener('click', e => {
             const href = btn.getAttribute('href');
             if (href && href.startsWith('#')) {
                 e.preventDefault();
-                const target = $(href);
-                if (target) {
-                    lenisInstance
-                        ? lenisInstance.scrollTo(target, { offset: -72, duration: 1.4 })
-                        : target.scrollIntoView({ behavior: 'smooth' });
-                }
+                closeMobileMenu();
+                setTimeout(() => scrollToSection(href), 50);
             }
         });
     });
@@ -292,7 +298,6 @@ function initHeroAnimations() {
         .from('#hero-buttons', { y: 16, opacity: 0, duration: 0.5 }, '-=0.4')
         .from('.hero-astronaut', { x: -40, opacity: 0, duration: 1.0, ease: 'power2.out' }, '-=0.8')
         .from('.hero-planet', { x: 40, opacity: 0, duration: 1.0, ease: 'power2.out' }, '-=0.9')
-        .from('.hero-photo', { y: 30, opacity: 0, duration: 0.8, ease: 'power2.out' }, '-=0.7')
         .from('#scroll-indicator', { opacity: 0, duration: 0.6 }, '-=0.3');
 
     // Floating astronaut
@@ -344,7 +349,15 @@ function initScrollAnimations() {
 
     // Section titles
     fadeUp('#projects-title', { y: 24 });
-    fadeUp('#about-title', { y: 24 });
+    // about-title: usa fromTo com clearProps para garantir visibilidade
+    gsap.fromTo('#about-title',
+        { y: 24, opacity: 0 },
+        {
+            y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
+            clearProps: 'all',
+            scrollTrigger: { trigger: '#about-title', start: 'top 88%', toggleActions: 'play none none none' }
+        }
+    );
     fadeUp('.cta-tag', { y: 16 });
     fadeUp('.cta-title', { y: 30 });
     fadeUp('.cta-text', { delay: 0.15 });
@@ -365,12 +378,12 @@ function initScrollAnimations() {
     // About left
     ScrollTrigger.create({
         trigger: '.about-left',
-        start: 'top 82%',
+        start: 'top 85%',
         onEnter: () => {
-            gsap.from('.about-left > *', {
-                x: -30, opacity: 0, duration: 0.7,
-                stagger: 0.12, ease: 'power3.out'
-            });
+            gsap.fromTo('.about-left > *',
+                { x: -30, opacity: 0 },
+                { x: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power3.out', clearProps: 'all' }
+            );
         }
     });
 
@@ -386,24 +399,6 @@ function initScrollAnimations() {
         }
     });
 
-    // Skill bars
-    ScrollTrigger.create({
-        trigger: '.skills-list',
-        start: 'top 82%',
-        onEnter: animateSkillBars
-    });
-
-    // Hero photo subtle parallax
-    gsap.to('.hero-photo', {
-        y: -40,
-        scrollTrigger: {
-            trigger: '#hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true
-        }
-    });
-
     // CTA sparkles subtle entrance
     $$('.cta-sparkle').forEach((el, i) => {
         gsap.from(el, {
@@ -415,18 +410,10 @@ function initScrollAnimations() {
 }
 
 /* ───────────────────────────────
-   9. SKILL BARS
+   9. SKILL BARS (removido — substituído por tags)
 ─────────────────────────────── */
 function animateSkillBars() {
-    $$('.skill-bar-fill').forEach(bar => {
-        const w = bar.dataset.width || '0';
-        gsap.to(bar, {
-            width: `${w}%`,
-            duration: 1.4,
-            ease: 'power3.out',
-            delay: 0.1
-        });
-    });
+    // Barras removidas — função mantida para evitar erros em referências residuais
 }
 
 /* ───────────────────────────────
@@ -493,15 +480,52 @@ function initModal() {
     const closeBtn = $('#modal-close');
     if (!overlay) return;
 
-    // Open on card click
+    // Comportamento de clique nos cards:
+    // ⓘ  → abre modal (onclick inline no HTML, qualquer dispositivo)
+    // ↗ seta → abre site ao vivo (href nativo, qualquer dispositivo)
+    // Clique geral no card:
+    //   Desktop → abre site ao vivo em nova aba
+    //   Mobile  → 1º toque revela overlay, 2º toque abre site ao vivo
     $$('.project-card').forEach(card => {
-        card.addEventListener('click', () => openModal(parseInt(card.dataset.project)));
+        card.addEventListener('click', (e) => {
+            // Nunca interceptar seta ou ícone ⓘ
+            if (e.target.closest('.card-arrow')) return;
+            if (e.target.closest('.card-info-icon')) return;
+
+            const project = PROJECTS[parseInt(card.dataset.project)];
+
+            if (window.innerWidth <= 768) {
+                // Mobile: primeiro toque revela overlay
+                if (!card.classList.contains('touched')) {
+                    $$('.project-card.touched').forEach(c => c.classList.remove('touched'));
+                    card.classList.add('touched');
+                } else {
+                    // Segundo toque: abre site ao vivo
+                    if (project && project.url) window.open(project.url, '_blank', 'noopener,noreferrer');
+                }
+            } else {
+                // Desktop: abre site ao vivo diretamente
+                if (project && project.url) window.open(project.url, '_blank', 'noopener,noreferrer');
+            }
+        });
+
         card.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') openModal(parseInt(card.dataset.project));
+            if (e.key === 'Enter' || e.key === ' ') {
+                const project = PROJECTS[parseInt(card.dataset.project)];
+                if (project && project.url) window.open(project.url, '_blank', 'noopener,noreferrer');
+            }
         });
     });
 
-    // Close
+    // Mobile: fechar overlay touched ao clicar fora dos cards
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth > 768) return;
+        if (!e.target.closest('.project-card')) {
+            $$('.project-card.touched').forEach(c => c.classList.remove('touched'));
+        }
+    });
+
+    // Fechar modal
     closeBtn && closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', e => {
         if (e.target === overlay) closeModal();
@@ -510,7 +534,7 @@ function initModal() {
         if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
     });
 
-    // Modal carousel controls
+    // Controles do carrossel do modal
     $('#modal-prev') && $('#modal-prev').addEventListener('click', () => setModalSlide(activeModalCarouselIndex - 1));
     $('#modal-next') && $('#modal-next').addEventListener('click', () => setModalSlide(activeModalCarouselIndex + 1));
 }

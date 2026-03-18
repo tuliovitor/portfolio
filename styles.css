@@ -81,40 +81,6 @@ button {
 }
 
 /* =====================================================
-   PRELOADER
-   ===================================================== */
-#preloader {
-    position: fixed;
-    inset: 0;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.6s ease;
-}
-
-#preloader-logo {
-    width: 80px;
-    height: auto;
-    animation: preloaderPulse 1.2s ease-in-out infinite;
-}
-
-@keyframes preloaderPulse {
-
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.5;
-        transform: scale(0.92);
-    }
-}
-
-/* =====================================================
    HEADER
    ===================================================== */
 #header {
@@ -246,6 +212,32 @@ button {
     flex-shrink: 0;
 }
 
+/* No mobile: logo à esquerda, hamburger à direita */
+@media (max-width: 768px) {
+    .nav-container {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .nav-left,
+    .nav-right {
+        display: none;
+    }
+
+    .nav-logo {
+        order: 1;
+        margin-left: 0;
+        flex-shrink: 0;
+    }
+
+    .hamburger {
+        order: 2;
+        margin-left: auto;
+        display: flex;
+    }
+}
+
+
 .nav-link {
     font-family: var(--font-body);
     font-size: 0.875rem;
@@ -317,6 +309,16 @@ button {
     padding: 6px;
     cursor: pointer;
     margin-left: 16px;
+    color: inherit;
+}
+
+/* Cor do hamburger por estado do header */
+#header.header-light .hamburger {
+    color: #0D0D0D;
+}
+
+#header.header-dark .hamburger {
+    color: #ffffff;
 }
 
 .hamburger span {
@@ -376,6 +378,39 @@ button {
 
 .mobile-link:hover {
     color: #fff;
+}
+
+/* Botões de ação no menu mobile */
+.mobile-menu-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
+}
+
+.mobile-btn-action {
+    /* Herda .btn-nav mas com tamanho maior pra facilitar toque */
+    height: 48px !important;
+    line-height: 48px !important;
+    font-size: 0.9rem !important;
+    width: 100%;
+    text-align: center;
+}
+
+.mobile-btn-action .btn-text-top,
+.mobile-btn-action .btn-text-bottom {
+    height: 48px !important;
+    line-height: 48px !important;
+}
+
+/* No mobile, mostrar o texto bottom no :active (toque) */
+@media (hover: none) {
+    .btn-nav:active .btn-text-top {
+        transform: translateY(-100%);
+    }
+    .btn-nav:active .btn-text-bottom {
+        transform: translateY(0%);
+    }
 }
 
 .mobile-cta {
@@ -653,24 +688,6 @@ button {
     flex-wrap: wrap;
 }
 
-/* Foto formal — abaixo do texto, direita */
-.hero-photo {
-    position: absolute;
-    bottom: 0;
-    right: calc(5% + clamp(220px, 28vw, 420px) * 0.1);
-    width: clamp(130px, 15vw, 220px);
-    z-index: 2;
-    pointer-events: none;
-}
-
-.hero-photo img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px 16px 0 0;
-    filter: grayscale(20%);
-    object-fit: cover;
-}
-
 /* Sparkles */
 .sparkle {
     position: absolute;
@@ -850,29 +867,41 @@ button {
     transform: scale(1.04);
 }
 
-/* Card overlay */
+/* Card overlay — pointer-events: none para não bloquear clique no card */
 .card-overlay {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0);
     transition: background 0.4s var(--ease);
     border-radius: var(--radius-card);
-    display: flex;
-    align-items: flex-end;
-    padding: 28px;
+    padding: 20px;
+    pointer-events: none;
 }
 
 .project-card:hover .card-overlay {
     background: rgba(0, 0, 0, 0.55);
 }
 
+/* Filhos interativos do overlay recebem pointer-events de volta */
+.card-info-icon,
+.card-arrow,
+.card-info,
+.card-tech-tags {
+    pointer-events: auto;
+}
+
+/* Nome + seta — canto inferior ESQUERDO */
 .card-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
     display: flex;
     align-items: center;
     gap: 12px;
     transform: translateY(12px);
     opacity: 0;
     transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+    z-index: 4;
 }
 
 .project-card:hover .card-info {
@@ -882,29 +911,98 @@ button {
 
 .card-name {
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #fff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
 }
 
+/* Seta — abre site ao vivo em nova aba */
 .card-arrow {
-    width: 42px;
-    height: 42px;
+    display: flex;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.15);
     border: 1.5px solid rgba(255, 255, 255, 0.3);
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+    transition: background 0.3s, transform 0.3s var(--ease);
+    text-decoration: none;
+}
+
+.project-card:hover .card-arrow:hover {
+    background: #fff;
+    color: #000;
+    transform: rotate(45deg);
+}
+
+/* Ícone Saiba Mais — canto superior DIREITO → abre modal */
+.card-info-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
-    transition: background 0.3s, transform 0.35s var(--ease);
-    flex-shrink: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), background 0.25s;
+    z-index: 5;
+    cursor: pointer;
 }
 
-.project-card:hover .card-arrow {
-    background: #fff;
-    color: #000;
-    transform: rotate(45deg);
+.project-card:hover .card-info-icon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-info-icon:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+/* Tech Tags — canto inferior DIREITO */
+.card-tech-tags {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 55%;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.35s var(--ease) 0.05s, transform 0.35s var(--ease) 0.05s;
+    z-index: 4;
+}
+
+.project-card:hover .card-tech-tags {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-tech {
+    padding: 3px 11px;
+    border-radius: 100px;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 /* =====================================================
@@ -1048,7 +1146,7 @@ button {
     margin-bottom: 48px;
 }
 
-/* Skills */
+/* Skills — tags agrupadas por categoria */
 .skills-title {
     font-family: var(--font-display);
     font-size: 1.2rem;
@@ -1057,45 +1155,51 @@ button {
     margin-bottom: 28px;
 }
 
-.skills-list {
+.skills-groups {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 22px;
 }
 
-.skill-header {
+.skill-group {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.skill-name {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--text-dark);
+.skill-group-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
 }
 
-.skill-percent {
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 100px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
     font-size: 0.82rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--text-dark);
+    letter-spacing: 0.2px;
+    transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.25s;
+    cursor: default;
 }
 
-.skill-bar-track {
-    height: 6px;
-    background: rgba(0, 0, 0, 0.08);
-    border-radius: 100px;
-    overflow: hidden;
-}
-
-.skill-bar-fill {
-    height: 100%;
-    border-radius: 100px;
-    background: linear-gradient(90deg, var(--text-dark), var(--accent));
-    width: 0;
-    /* animated by GSAP */
-    transition: width 1.2s var(--ease-out);
+.skill-tag:hover {
+    background: var(--text-dark);
+    border-color: var(--text-dark);
+    color: #fff;
+    transform: translateY(-2px);
 }
 
 .about-quote {
@@ -1341,23 +1445,30 @@ button {
 
 .modal-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 16px;
+    right: 16px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.07);
+    /* Fundo semi-opaco com borda — visível em qualquer cor de fundo */
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-dark);
-    z-index: 10;
-    transition: background 0.25s, transform 0.25s;
+    /* Ícone sempre escuro para contrastar com fundo claro do botão */
+    color: #0D0D0D;
+    z-index: 20;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
 .modal-close:hover {
-    background: rgba(0, 0, 0, 0.14);
-    transform: scale(1.1);
+    background: #fff;
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .modal-inner {
@@ -1497,14 +1608,18 @@ button {
     flex-wrap: wrap;
 }
 
-/* =====================================================
-   RESPONSIVE
-   ===================================================== */
+.about-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
 @media (max-width: 1024px) {
-    .hero-photo {
-        display: none;
-    }
-
     .hero-astronaut {
         width: clamp(200px, 30vw, 320px);
     }
@@ -1594,9 +1709,15 @@ button {
         display: none;
     }
 
+    /* Modal mobile fixes */
+    .modal-overlay {
+        padding: 12px;
+        align-items: flex-end;
+    }
+
     .modal-container {
         max-height: 95vh;
-        border-radius: 16px;
+        border-radius: 20px 20px 16px 16px;
     }
 
     .modal-inner {
@@ -1606,7 +1727,54 @@ button {
     }
 
     .modal-carousel-section {
-        min-height: 250px;
+        min-height: 220px;
+    }
+
+    /* Projetos mobile — esconder tech tags, manter nome + seta + ícone ⓘ */
+    .card-tech-tags {
+        display: none;
+    }
+
+    /* Estado touched (primeiro toque) — revelar overlay no mobile */
+    .project-card.touched .card-overlay {
+        background: rgba(0, 0, 0, 0.55);
+    }
+
+    .project-card.touched .card-info-icon {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .project-card.touched .card-info {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Fechar modal (mantido para compatibilidade) */
+    .modal-close {
+        top: 12px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+        z-index: 30;
+    }
+
+    .modal-info {
+        padding: 28px 20px 36px;
+    }
+
+    .modal-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-modal {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
     }
 }
 

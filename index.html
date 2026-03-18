@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tulio Vítor — Desenvolvedor Front-End</title>
+    <title>Tulio Vítor | Desenvolvedor Front-End</title>
+    <link rel="icon" type="image/svg+xml" href="assets/tv-logo-preloader-preta-v2.svg" />
+    <link rel="alternate icon" href="assets/tv-logo-preloader-preta-v2.svg" />
     <meta name="description"
         content="Portfólio de Tulio Vítor, desenvolvedor front-end em formação, buscando primeiro estágio. Projetos criativos com HTML, CSS e JavaScript." />
     <meta name="author" content="Tulio Vítor" />
@@ -22,17 +24,13 @@
 
 <body>
 
-    <!-- ===== PRELOADER ===== -->
-    <div id="preloader">
-        <img src="assets/tv-logo-preloader-branca.svg" alt="TV Logo" id="preloader-logo" />
-    </div>
-
     <!-- ===== HEADER ===== -->
     <header id="header" class="header-light">
         <nav class="nav-container">
             <div class="nav-left">
                 <a href="#hero" class="nav-link">Início</a>
                 <a href="#projetos" class="nav-link">Projetos</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
             </div>
 
             <a href="#hero" class="nav-logo" id="nav-logo">
@@ -41,13 +39,12 @@
             </a>
 
             <div class="nav-right">
-                <a href="#sobre" class="nav-link">Sobre</a>
                 <a href="#contato" class="nav-link">Contato</a>
                 <a href="#projetos" class="btn-nav btn-nav-primary">
                     <span class="btn-text-top">Ver Projetos</span>
-                    <span class="btn-text-bottom">Ver Projetos</span>
+                    <span class="btn-text-bottom">Vamos lá ↓</span>
                 </a>
-                <a href="https://linkedin.com/in/tuliovitor" target="_blank" rel="noopener"
+                <a href="https://wa.me/5585987485875?text=Oi%20Tulio!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20%F0%9F%9A%80" target="_blank" rel="noopener"
                     class="btn-nav btn-nav-secondary">
                     <span class="btn-text-top">Vamos conversar ↗</span>
                     <span class="btn-text-bottom">Manda um Oi ↗</span>
@@ -65,7 +62,16 @@
             <a href="#projetos" class="mobile-link">Projetos</a>
             <a href="#sobre" class="mobile-link">Sobre</a>
             <a href="#contato" class="mobile-link">Contato</a>
-            <a href="#projetos" class="mobile-link mobile-cta">Ver Projetos ↗</a>
+            <div class="mobile-menu-actions">
+                <a href="#projetos" class="btn-nav btn-nav-primary mobile-btn-action">
+                    <span class="btn-text-top">Ver Projetos</span>
+                    <span class="btn-text-bottom">Vamos lá ↓</span>
+                </a>
+                <a href="https://wa.me/5585987485875?text=Oi%20Tulio!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20%F0%9F%9A%80" target="_blank" rel="noopener" class="btn-nav btn-nav-secondary mobile-btn-action">
+                    <span class="btn-text-top">Vamos conversar ↗</span>
+                    <span class="btn-text-bottom">Manda um Oi ↗</span>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -80,7 +86,7 @@
 
                 <!-- Planeta (canto superior direito) -->
                 <div class="hero-planet" data-speed="0.9">
-                    <img src="assets/code-planet.png" alt="Code Planet" loading="eager" />
+                    <img src="assets/code-planet-dark.webp" alt="Code Planet" loading="eager" />
                 </div>
 
                 <!-- Astronauta (canto inferior esquerdo) -->
@@ -91,7 +97,7 @@
                                 fill="#FCD34D" />
                         </svg>
                     </div>
-                    <img src="assets/tulio-astro.jpeg" alt="Tulio Astronauta" loading="eager" />
+                    <img src="assets/tulio-astro.webp" alt="Tulio Astronauta" loading="eager" />
                 </div>
 
                 <!-- Texto Central -->
@@ -120,17 +126,11 @@
                             <span class="btn-text-top">Ver Projetos</span>
                             <span class="btn-text-bottom">Vamos lá</span>
                         </a>
-                        <a href="#contato" class="btn btn-secondary" id="btn-conversar">
+                        <a href="https://wa.me/5585987485875?text=Oi%20Tulio!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20%F0%9F%9A%80" target="_blank" rel="noopener" class="btn btn-secondary" id="btn-conversar">
                             <span class="btn-text-top">Vamos conversar!</span>
                             <span class="btn-text-bottom">Manda um Oi!</span>
                         </a>
                     </div>
-                </div>
-
-                <!-- Foto Formal (abaixo do texto, canto direito) -->
-                <div class="hero-photo" data-speed="1.05">
-                    <img src="https://drive.google.com/uc?export=view&id=1I0fkKkDXIYSVFhYWb3M9cIJ9CLGXni33"
-                        alt="Tulio Vítor" loading="eager" />
                 </div>
 
                 <!-- Sparkles decorativos -->
@@ -160,18 +160,32 @@
                         <div class="project-card" data-project="0" tabindex="0" role="button"
                             aria-label="Ver projeto Stranger Things Experience">
                             <div class="card-img-wrapper">
-                                <img src="assets/mockup-projeto01.png" alt="Stranger Things Experience"
+                                <img src="assets/mockup-projeto01.webp" alt="Stranger Things Experience"
                                     loading="lazy" />
                                 <div class="card-overlay">
+                                    <!-- Ícone saiba mais — canto superior direito → abre modal -->
+                                    <button class="card-info-icon" title="Saiba mais" data-modal="0" onclick="event.stopPropagation(); openModal(0);">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="12" y1="8" x2="12" y2="12"/>
+                                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                                        </svg>
+                                    </button>
+                                    <!-- Nome + seta — canto inferior esquerdo. Seta abre site ao vivo -->
                                     <div class="card-info">
                                         <span class="card-name">Stranger Things</span>
-                                        <div class="card-arrow">
-                                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <line x1="7" y1="17" x2="17" y2="7" />
-                                                <polyline points="7 7 17 7 17 17" />
+                                        <a class="card-arrow" href="https://tuliovitor.github.io/stranger-things" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
                                             </svg>
-                                        </div>
+                                        </a>
+                                    </div>
+                                    <!-- Tech tags — canto inferior direito -->
+                                    <div class="card-tech-tags">
+                                        <span class="card-tech">HTML</span>
+                                        <span class="card-tech">CSS</span>
+                                        <span class="card-tech">JS</span>
+                                        <span class="card-tech">GSAP</span>
                                     </div>
                                 </div>
                             </div>
@@ -181,17 +195,27 @@
                         <div class="project-card" data-project="1" tabindex="0" role="button"
                             aria-label="Ver projeto Beach 085">
                             <div class="card-img-wrapper">
-                                <img src="assets/mockup-projeto02.png" alt="Beach 085" loading="lazy" />
+                                <img src="assets/mockup-projeto02.webp" alt="Beach 085" loading="lazy" />
                                 <div class="card-overlay">
+                                    <button class="card-info-icon" title="Saiba mais" onclick="event.stopPropagation(); openModal(1);">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="12" y1="8" x2="12" y2="12"/>
+                                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                                        </svg>
+                                    </button>
                                     <div class="card-info">
                                         <span class="card-name">Beach 085</span>
-                                        <div class="card-arrow">
-                                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <line x1="7" y1="17" x2="17" y2="7" />
-                                                <polyline points="7 7 17 7 17 17" />
+                                        <a class="card-arrow" href="https://tuliovitor.github.io/beach-085-site" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
                                             </svg>
-                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="card-tech-tags">
+                                        <span class="card-tech">HTML</span>
+                                        <span class="card-tech">CSS</span>
+                                        <span class="card-tech">JS</span>
                                     </div>
                                 </div>
                             </div>
@@ -201,17 +225,27 @@
                         <div class="project-card" data-project="2" tabindex="0" role="button"
                             aria-label="Ver projeto TechStore">
                             <div class="card-img-wrapper">
-                                <img src="assets/mockup-projeto03.png" alt="TechStore" loading="lazy" />
+                                <img src="assets/mockup-projeto03.webp" alt="TechStore" loading="lazy" />
                                 <div class="card-overlay">
+                                    <button class="card-info-icon" title="Saiba mais" onclick="event.stopPropagation(); openModal(2);">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="12" y1="8" x2="12" y2="12"/>
+                                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                                        </svg>
+                                    </button>
                                     <div class="card-info">
                                         <span class="card-name">TechStore</span>
-                                        <div class="card-arrow">
-                                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <line x1="7" y1="17" x2="17" y2="7" />
-                                                <polyline points="7 7 17 7 17 17" />
+                                        <a class="card-arrow" href="https://tuliovitor.github.io/tech-store" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
                                             </svg>
-                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="card-tech-tags">
+                                        <span class="card-tech">HTML</span>
+                                        <span class="card-tech">CSS</span>
+                                        <span class="card-tech">JS</span>
                                     </div>
                                 </div>
                             </div>
@@ -221,17 +255,26 @@
                         <div class="project-card" data-project="3" tabindex="0" role="button"
                             aria-label="Ver projeto Linkador Pessoal">
                             <div class="card-img-wrapper">
-                                <img src="assets/mockup-projeto04.png" alt="Linkador Pessoal" loading="lazy" />
+                                <img src="assets/mockup-projeto04.webp" alt="Linkador Pessoal" loading="lazy" />
                                 <div class="card-overlay">
+                                    <button class="card-info-icon" title="Saiba mais" onclick="event.stopPropagation(); openModal(3);">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="12" y1="8" x2="12" y2="12"/>
+                                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                                        </svg>
+                                    </button>
                                     <div class="card-info">
                                         <span class="card-name">Linkador Pessoal</span>
-                                        <div class="card-arrow">
-                                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <line x1="7" y1="17" x2="17" y2="7" />
-                                                <polyline points="7 7 17 7 17 17" />
+                                        <a class="card-arrow" href="https://tuliovitor.github.io/links-portfolio" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
                                             </svg>
-                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="card-tech-tags">
+                                        <span class="card-tech">HTML</span>
+                                        <span class="card-tech">CSS</span>
                                     </div>
                                 </div>
                             </div>
@@ -241,17 +284,26 @@
                         <div class="project-card" data-project="4" tabindex="0" role="button"
                             aria-label="Ver projeto Player de Música">
                             <div class="card-img-wrapper">
-                                <img src="assets/mockup-projeto05.png" alt="Player de Música" loading="lazy" />
+                                <img src="assets/mockup-projeto05.webp" alt="Player de Música" loading="lazy" />
                                 <div class="card-overlay">
+                                    <button class="card-info-icon" title="Saiba mais" onclick="event.stopPropagation(); openModal(4);">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="12" y1="8" x2="12" y2="12"/>
+                                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                                        </svg>
+                                    </button>
                                     <div class="card-info">
                                         <span class="card-name">Player de Música</span>
-                                        <div class="card-arrow">
-                                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <line x1="7" y1="17" x2="17" y2="7" />
-                                                <polyline points="7 7 17 7 17 17" />
+                                        <a class="card-arrow" href="https://tuliovitor.github.io/player-de-musica" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
                                             </svg>
-                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="card-tech-tags">
+                                        <span class="card-tech">HTML</span>
+                                        <span class="card-tech">CSS</span>
                                     </div>
                                 </div>
                             </div>
@@ -261,17 +313,28 @@
                         <div class="project-card" data-project="5" tabindex="0" role="button"
                             aria-label="Ver projeto Criador Mágico IA">
                             <div class="card-img-wrapper">
-                                <img src="assets/mockup-projeto06.png" alt="Criador Mágico IA" loading="lazy" />
+                                <img src="assets/mockup-projeto06.webp" alt="Criador Mágico IA" loading="lazy" />
                                 <div class="card-overlay">
+                                    <button class="card-info-icon" title="Saiba mais" onclick="event.stopPropagation(); openModal(5);">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="12" y1="8" x2="12" y2="12"/>
+                                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                                        </svg>
+                                    </button>
                                     <div class="card-info">
                                         <span class="card-name">Criador Mágico IA</span>
-                                        <div class="card-arrow">
-                                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <line x1="7" y1="17" x2="17" y2="7" />
-                                                <polyline points="7 7 17 7 17 17" />
+                                        <a class="card-arrow" href="https://tuliovitor.github.io/criador-magico-ia" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
                                             </svg>
-                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="card-tech-tags">
+                                        <span class="card-tech">HTML</span>
+                                        <span class="card-tech">CSS</span>
+                                        <span class="card-tech">JS</span>
+                                        <span class="card-tech">N8N</span>
                                     </div>
                                 </div>
                             </div>
@@ -353,15 +416,15 @@
                             <div class="photo-carousel-wrapper">
                                 <div class="photo-carousel" id="photo-carousel">
                                     <div class="photo-track" id="photo-track">
-                                        <div class="photo-slide"><img src="assets/tulio-casual.jpg" alt="Tulio casual"
+                                        <div class="photo-slide"><img src="assets/tulio-casual.webp" alt="Tulio casual"
                                                 loading="lazy" /></div>
-                                        <div class="photo-slide"><img src="assets/tulio-casual2.jpg"
+                                        <div class="photo-slide"><img src="assets/tulio-casual2.webp"
                                                 alt="Tulio casual v2" loading="lazy" /></div>
-                                        <div class="photo-slide"><img src="assets/setup.jpg" alt="Setup"
+                                        <div class="photo-slide"><img src="assets/setup.webp" alt="Setup"
                                                 loading="lazy" /></div>
-                                        <div class="photo-slide"><img src="assets/futebol.jpg" alt="Futebol"
+                                        <div class="photo-slide"><img src="assets/futebol.webp" alt="Futebol"
                                                 loading="lazy" /></div>
-                                        <div class="photo-slide"><img src="assets/netflix.jpg" alt="Netflix"
+                                        <div class="photo-slide"><img src="assets/netflix.webp" alt="Netflix"
                                                 loading="lazy" /></div>
                                     </div>
                                 </div>
@@ -386,51 +449,39 @@
                             </p>
 
                             <div class="skills-section">
-                                <h4 class="skills-title">Competências</h4>
-                                <div class="skills-list">
-                                    <div class="skill-item">
-                                        <div class="skill-header"><span class="skill-name">HTML</span><span
-                                                class="skill-percent">100%</span></div>
-                                        <div class="skill-bar-track">
-                                            <div class="skill-bar-fill" data-width="100"></div>
+                                <h4 class="skills-title">Habilidades</h4>
+
+                                <div class="skills-groups">
+                                    <!-- Grupo Front-End -->
+                                    <div class="skill-group">
+                                        <span class="skill-group-label">Front-End</span>
+                                        <div class="skill-tags">
+                                            <span class="skill-tag">HTML</span>
+                                            <span class="skill-tag">CSS</span>
+                                            <span class="skill-tag">JavaScript</span>
                                         </div>
                                     </div>
-                                    <div class="skill-item">
-                                        <div class="skill-header"><span class="skill-name">CSS</span><span
-                                                class="skill-percent">100%</span></div>
-                                        <div class="skill-bar-track">
-                                            <div class="skill-bar-fill" data-width="100"></div>
+
+                                    <!-- Grupo Back-End / BD -->
+                                    <div class="skill-group">
+                                        <span class="skill-group-label">Back-End &amp; Dados</span>
+                                        <div class="skill-tags">
+                                            <span class="skill-tag">Java</span>
+                                            <span class="skill-tag">SQL</span>
                                         </div>
                                     </div>
-                                    <div class="skill-item">
-                                        <div class="skill-header"><span class="skill-name">JavaScript</span><span
-                                                class="skill-percent">80%</span></div>
-                                        <div class="skill-bar-track">
-                                            <div class="skill-bar-fill" data-width="80"></div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <div class="skill-header"><span class="skill-name">SQL</span><span
-                                                class="skill-percent">60%</span></div>
-                                        <div class="skill-bar-track">
-                                            <div class="skill-bar-fill" data-width="60"></div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <div class="skill-header"><span class="skill-name">Java</span><span
-                                                class="skill-percent">60%</span></div>
-                                        <div class="skill-bar-track">
-                                            <div class="skill-bar-fill" data-width="60"></div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <div class="skill-header"><span class="skill-name">Git / GitHub</span><span
-                                                class="skill-percent">40%</span></div>
-                                        <div class="skill-bar-track">
-                                            <div class="skill-bar-fill" data-width="40"></div>
+
+                                    <!-- Grupo Ferramentas -->
+                                    <div class="skill-group">
+                                        <span class="skill-group-label">Ferramentas</span>
+                                        <div class="skill-tags">
+                                            <span class="skill-tag">Git &amp; GitHub</span>
+                                            <span class="skill-tag">GSAP</span>
+                                            <span class="skill-tag">N8N</span>
                                         </div>
                                     </div>
                                 </div>
+
                                 <p class="about-quote">"Não seja o problema, seja a solução 👻"</p>
                             </div>
                         </div>
@@ -449,7 +500,7 @@
                         Estou disponível para estágios e oportunidades.<br />
                         Se você chegou até aqui, já sabe que vale a pena bater um papo.
                     </p>
-                    <a href="https://linkedin.com/in/tuliovitor" target="_blank" rel="noopener"
+                    <a href="https://wa.me/5585987485875?text=Oi%20Tulio!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20%F0%9F%9A%80" target="_blank" rel="noopener"
                         class="btn btn-primary btn-cta" id="btn-cta">
                         <span class="btn-text-top">Vamos conversar ↗</span>
                         <span class="btn-text-bottom">Manda um Oi ↗</span>
@@ -460,7 +511,7 @@
                     <div class="cta-sparkle cta-s2">✦</div>
                     <div class="cta-sparkle cta-s3">✦</div>
                     <div class="cta-planet">
-                        <img src="assets/code-planet-dark.png" alt="" aria-hidden="true" loading="lazy" />
+                        <img src="assets/code-planet-dark.webp" alt="" aria-hidden="true" loading="lazy" />
                     </div>
                 </div>
             </section>
