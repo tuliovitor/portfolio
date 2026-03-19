@@ -68,6 +68,26 @@ const PROJECTS = [
         github: 'https://github.com/tuliovitor/criador-magico-ia',
         tech: ['HTML', 'CSS', 'JavaScript', 'N8N'],
         desc: 'Aplicação web com inteligência artificial integrada que gera animações CSS a partir de descrições em texto. Editor de código ao vivo com preview em tempo real e sugestões automáticas.'
+    },
+    {
+        name: 'Lumina Solar',
+        images: [
+            'assets/mockup-projeto07.webp'
+        ],
+        url: 'https://luminasolarenergy.com.br',
+        github: 'https://github.com/tuliovitor/lumina-solar',
+        tech: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Lenis', 'ScrollTrigger'],
+        desc: 'Site institucional para empresa de energia solar fotovoltaica no Ceará — cliente real. Desenvolvido com slider horizontal fixado por GSAP ScrollTrigger, vídeo hero otimizado com poster, mapa lazy do Google Maps, animações de contadores, preloader customizado, WhatsApp flutuante e SEO completo. Projeto responsivo com foco em conversão de leads.'
+    },
+    {
+        name: 'Feliz Aniversário Lívia',
+        images: [
+            'assets/mockup-projeto08.webp'
+        ],
+        url: 'https://tuliovitor.github.io/feliz-aniversario-livia',
+        github: 'https://github.com/tuliovitor/feliz-aniversario-livia',
+        tech: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Lenis'],
+        desc: 'Site surpresa de aniversário para uma amiga. Experiência imersiva com slider horizontal de cards, memorial com SVG path animado e polaroids, carta interativa com animações de entrada, countdown em tempo real para o próximo aniversário e sistema de celebração com confetes e faíscas em Canvas. Uma das produções mais técnicas e emocionais do portfólio.'
     }
 ];
 
@@ -81,8 +101,6 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
    1. PRELOADER (removido — inicializa direto)
 ─────────────────────────────── */
 function initPreloader() {
-    // Preloader removido para carregamento instantâneo
-    // Hero animations disparam imediatamente
     document.body.style.overflow = '';
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
         initHeroAnimations();
@@ -107,11 +125,8 @@ function initLenis() {
         touchMultiplier: 1.5,
     });
 
-    // Sync Lenis with GSAP ticker
     gsap.ticker.add(time => lenisInstance.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
-
-    // Sync Lenis with ScrollTrigger
     lenisInstance.on('scroll', ScrollTrigger.update);
 
     return lenisInstance;
@@ -150,7 +165,6 @@ function initHeader() {
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
 
-    // Função de scroll robusta — usa Lenis se disponível, fallback nativo
     function scrollToSection(href) {
         const target = $(href);
         if (!target) return;
@@ -162,7 +176,6 @@ function initHeader() {
         }
     }
 
-    // Smooth scroll — nav-link desktop
     $$('.nav-link').forEach(link => {
         link.addEventListener('click', e => {
             const href = link.getAttribute('href');
@@ -173,8 +186,6 @@ function initHeader() {
         });
     });
 
-    // Smooth scroll — mobile-link (menu hambúrguer)
-    // Usa event delegation no menu para não perder elementos adicionados dinamicamente
     const mobileMenu = $('#mobile-menu');
     if (mobileMenu) {
         mobileMenu.addEventListener('click', e => {
@@ -184,13 +195,11 @@ function initHeader() {
             if (href && href.startsWith('#')) {
                 e.preventDefault();
                 closeMobileMenu();
-                // Pequeno delay para o menu fechar antes de scrollar
                 setTimeout(() => scrollToSection(href), 50);
             }
         });
     }
 
-    // Smooth scroll — footer nav
     $$('.footer-nav a').forEach(link => {
         link.addEventListener('click', e => {
             const href = link.getAttribute('href');
@@ -201,7 +210,6 @@ function initHeader() {
         });
     });
 
-    // btn-nav com âncora (Ver Projetos e similares)
     $$('.btn-nav').forEach(btn => {
         btn.addEventListener('click', e => {
             const href = btn.getAttribute('href');
@@ -300,18 +308,15 @@ function initHeroAnimations() {
         .from('.hero-planet', { x: 40, opacity: 0, duration: 1.0, ease: 'power2.out' }, '-=0.9')
         .from('#scroll-indicator', { opacity: 0, duration: 0.6 }, '-=0.3');
 
-    // Floating astronaut
     gsap.to('.hero-astronaut', {
         y: -18, duration: 3.5, ease: 'sine.inOut', yoyo: true, repeat: -1
     });
 
-    // Planet float + rotate
     gsap.to('.hero-planet', {
         y: -14, rotation: 4, duration: 4.5,
         ease: 'sine.inOut', yoyo: true, repeat: -1
     });
 
-    // Sparkles
     $$('.sparkle').forEach((el, i) => {
         gsap.to(el, {
             y: `random(-12, 12)`, x: `random(-8, 8)`,
@@ -321,7 +326,6 @@ function initHeroAnimations() {
         });
     });
 
-    // Hide scroll indicator on first scroll
     window.addEventListener('scroll', () => {
         gsap.to('#scroll-indicator', { opacity: 0, duration: 0.4 });
     }, { once: true, passive: true });
@@ -331,7 +335,6 @@ function initHeroAnimations() {
    8. SCROLL ANIMATIONS (ScrollTrigger)
 ─────────────────────────────── */
 function initScrollAnimations() {
-    // Helper: fade-up on enter
     function fadeUp(el, opts = {}) {
         gsap.from(el, {
             y: opts.y || 36,
@@ -347,9 +350,7 @@ function initScrollAnimations() {
         });
     }
 
-    // Section titles
     fadeUp('#projects-title', { y: 24 });
-    // about-title: usa fromTo com clearProps para garantir visibilidade
     gsap.fromTo('#about-title',
         { y: 24, opacity: 0 },
         {
@@ -363,7 +364,6 @@ function initScrollAnimations() {
     fadeUp('.cta-text', { delay: 0.15 });
     fadeUp('#btn-cta', { delay: 0.25 });
 
-    // Project cards — stagger
     ScrollTrigger.create({
         trigger: '#projects-grid',
         start: 'top 85%',
@@ -375,7 +375,6 @@ function initScrollAnimations() {
         }
     });
 
-    // About left
     ScrollTrigger.create({
         trigger: '.about-left',
         start: 'top 85%',
@@ -387,7 +386,6 @@ function initScrollAnimations() {
         }
     });
 
-    // About right
     ScrollTrigger.create({
         trigger: '.about-right',
         start: 'top 82%',
@@ -399,7 +397,6 @@ function initScrollAnimations() {
         }
     });
 
-    // CTA sparkles subtle entrance
     $$('.cta-sparkle').forEach((el, i) => {
         gsap.from(el, {
             scale: 0, opacity: 0, duration: 0.5, delay: i * 0.15,
@@ -439,12 +436,10 @@ function initPhotoCarousel() {
     }
     function stopAuto() { clearInterval(autoTimer); }
 
-    // Dots click
     dots.forEach((dot, i) => {
         dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
     });
 
-    // Drag support
     let startX = 0, isDragging = false;
     const carousel = $('#photo-carousel');
 
@@ -480,31 +475,21 @@ function initModal() {
     const closeBtn = $('#modal-close');
     if (!overlay) return;
 
-    // Comportamento de clique nos cards:
-    // ⓘ  → abre modal (onclick inline no HTML, qualquer dispositivo)
-    // ↗ seta → abre site ao vivo (href nativo, qualquer dispositivo)
-    // Clique geral no card:
-    //   Desktop → abre site ao vivo em nova aba
-    //   Mobile  → 1º toque revela overlay, 2º toque abre site ao vivo
     $$('.project-card').forEach(card => {
         card.addEventListener('click', (e) => {
-            // Nunca interceptar seta ou ícone ⓘ
             if (e.target.closest('.card-arrow')) return;
             if (e.target.closest('.card-info-icon')) return;
 
             const project = PROJECTS[parseInt(card.dataset.project)];
 
             if (window.innerWidth <= 768) {
-                // Mobile: primeiro toque revela overlay
                 if (!card.classList.contains('touched')) {
                     $$('.project-card.touched').forEach(c => c.classList.remove('touched'));
                     card.classList.add('touched');
                 } else {
-                    // Segundo toque: abre site ao vivo
                     if (project && project.url) window.open(project.url, '_blank', 'noopener,noreferrer');
                 }
             } else {
-                // Desktop: abre site ao vivo diretamente
                 if (project && project.url) window.open(project.url, '_blank', 'noopener,noreferrer');
             }
         });
@@ -517,7 +502,6 @@ function initModal() {
         });
     });
 
-    // Mobile: fechar overlay touched ao clicar fora dos cards
     document.addEventListener('click', (e) => {
         if (window.innerWidth > 768) return;
         if (!e.target.closest('.project-card')) {
@@ -525,7 +509,6 @@ function initModal() {
         }
     });
 
-    // Fechar modal
     closeBtn && closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', e => {
         if (e.target === overlay) closeModal();
@@ -534,7 +517,6 @@ function initModal() {
         if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
     });
 
-    // Controles do carrossel do modal
     $('#modal-prev') && $('#modal-prev').addEventListener('click', () => setModalSlide(activeModalCarouselIndex - 1));
     $('#modal-next') && $('#modal-next').addEventListener('click', () => setModalSlide(activeModalCarouselIndex + 1));
 }
@@ -546,26 +528,22 @@ function openModal(projectIndex) {
     activeModalProject = project;
     activeModalCarouselIndex = 0;
 
-    // Populate content
     $('#modal-title').textContent = project.name;
     $('#modal-desc').textContent = project.desc;
     $('#modal-live').href = project.url;
     $('#modal-github').href = project.github;
 
-    // Tags
     const tagsEl = $('#modal-tags');
     tagsEl.innerHTML = project.tech.map(t =>
         `<span class="modal-tag">${t}</span>`
     ).join('');
 
-    // Slides
     const slidesEl = $('#modal-slides');
     slidesEl.innerHTML = project.images.map(src =>
         `<div class="modal-slide"><img src="${src}" alt="${project.name}" loading="lazy" /></div>`
     ).join('');
     slidesEl.style.transform = 'translateX(0)';
 
-    // Dots
     const dotsEl = $('#modal-dots');
     dotsEl.innerHTML = project.images.map((_, i) =>
         `<button class="modal-dot${i === 0 ? ' active' : ''}" data-slide="${i}"></button>`
@@ -577,16 +555,18 @@ function openModal(projectIndex) {
     const overlay = $('#modal');
     const container = overlay.querySelector('.modal-container');
 
-    // Kill any in-flight tween and reset to entry state
     gsap.killTweensOf(container);
     gsap.set(container, { y: 28, opacity: 0, scale: 0.97 });
 
-    // Show overlay
+    // Bloqueia scroll da página mas permite scroll interno do modal
     document.body.style.overflow = 'hidden';
     if (lenisInstance) lenisInstance.stop();
     overlay.classList.add('open');
 
-    // Animate container in
+    // Resetar scroll interno do modal-info ao abrir
+    const modalInfo = $('#modal-container').querySelector('.modal-info');
+    if (modalInfo) modalInfo.scrollTop = 0;
+
     gsap.to(container, {
         y: 0, opacity: 1, scale: 1,
         duration: 0.45, ease: 'power3.out'
@@ -597,7 +577,6 @@ function closeModal() {
     const overlay = $('#modal');
     const container = overlay.querySelector('.modal-container');
 
-    // Kill any in-flight tween
     gsap.killTweensOf(container);
 
     gsap.to(container, {
@@ -607,7 +586,6 @@ function closeModal() {
             overlay.classList.remove('open');
             document.body.style.overflow = '';
             if (lenisInstance) lenisInstance.start();
-            // Reset so next open always starts from a clean entry state
             gsap.set(container, { y: 28, opacity: 0, scale: 0.97 });
         }
     });
@@ -627,7 +605,6 @@ function setModalSlide(index) {
    12. SCROLL HIGHLIGHT TEXT
 ─────────────────────────────── */
 function initScrollHighlight() {
-    // Animate section tags and subtitles with scroll-linked opacity
     $$('.section-tag').forEach(el => {
         gsap.fromTo(el,
             { opacity: 0.2 },
@@ -643,13 +620,9 @@ function initScrollHighlight() {
         );
     });
 
-    // Text blur-reveal on hero title (SplitText-free implementation)
     const heroTitle = $('#hero-title');
     if (!heroTitle) return;
 
-    // Split words manually
-    const words = heroTitle.innerHTML.split(/([\s<>\/\w="'-]+)/);
-    // Instead apply to section titles
     $$('.section-title').forEach(titleEl => {
         gsap.fromTo(titleEl,
             { opacity: 0.15, filter: 'blur(4px)' },
@@ -688,32 +661,23 @@ function initCtaAnimations() {
    INIT
 ─────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-    // Register GSAP plugins
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-    // Init smooth scroll
     initLenis();
-
-    // Init preloader (and hero animations fire after)
     initPreloader();
 
-    // Particles — dark dots on light hero bg, purple on dark CTA bg
     initParticles('particles-canvas', 60, 'rgba(13,13,13,0.07)');
     initParticles('cta-particles', 40, 'rgba(129,140,248,0.4)');
 
-    // Header
     initHeader();
     initHamburger();
 
-    // Scroll animations
     initScrollAnimations();
     initScrollHighlight();
     initCtaAnimations();
 
-    // Interactivity
     initModal();
     initPhotoCarousel();
 
-    // Refresh ScrollTrigger after fonts load
     document.fonts.ready.then(() => ScrollTrigger.refresh());
 });

@@ -14,7 +14,6 @@
 
 html {
     scroll-behavior: auto;
-    /* Lenis handles smooth */
 }
 
 body {
@@ -51,9 +50,7 @@ button {
     --text-dark: #0D0D0D;
     --text-muted: #888;
     --accent: #818CF8;
-    /* indigo suave */
     --accent2: #FCD34D;
-    /* dourado estrela */
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'DM Sans', sans-serif;
     --ease: cubic-bezier(0.4, 0, 0.2, 1);
@@ -94,7 +91,6 @@ button {
     transition: background 0.4s var(--ease), backdrop-filter 0.4s, box-shadow 0.4s;
 }
 
-/* Estado inicial (sobre hero clara) */
 #header.header-light {
     background: rgba(248, 247, 244, 0);
 }
@@ -124,7 +120,6 @@ button {
     display: block;
 }
 
-/* Header scrollado em seção clara */
 #header.header-light.header-scrolled {
     background: rgba(248, 247, 244, 0.88);
     backdrop-filter: blur(20px) saturate(180%);
@@ -133,7 +128,6 @@ button {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Estado inicial (sobre hero ou seção escura) */
 #header.header-dark {
     background: transparent;
 }
@@ -155,7 +149,6 @@ button {
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* Header scrollado em seção escura */
 #header.header-dark.header-scrolled {
     background: rgba(8, 8, 8, 0.7);
     backdrop-filter: blur(20px) saturate(180%);
@@ -164,7 +157,6 @@ button {
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-/* Logo switching */
 .logo-white {
     display: block;
     height: 36px;
@@ -236,7 +228,6 @@ button {
         display: flex;
     }
 }
-
 
 .nav-link {
     font-family: var(--font-body);
@@ -389,7 +380,6 @@ button {
 }
 
 .mobile-btn-action {
-    /* Herda .btn-nav mas com tamanho maior pra facilitar toque */
     height: 48px !important;
     line-height: 48px !important;
     font-size: 0.9rem !important;
@@ -418,7 +408,6 @@ button {
     font-weight: 600;
     border: none;
 }
-
 
 .btn {
     display: inline-block;
@@ -544,7 +533,6 @@ button {
     pointer-events: none;
 }
 
-/* Planeta — canto superior direito */
 .hero-planet {
     position: absolute;
     top: 6%;
@@ -559,7 +547,6 @@ button {
     height: auto;
 }
 
-/* Astronauta — canto inferior esquerdo */
 .hero-astronaut {
     position: absolute;
     bottom: -2%;
@@ -574,7 +561,6 @@ button {
     height: auto;
 }
 
-/* Estrela acima do astronauta */
 .hero-star-glow {
     position: absolute;
     top: 10%;
@@ -585,20 +571,10 @@ button {
 }
 
 @keyframes starPulse {
-
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-    }
-
-    50% {
-        opacity: 0.7;
-        transform: scale(1.15) rotate(10deg);
-    }
+    0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.7; transform: scale(1.15) rotate(10deg); }
 }
 
-/* Texto Central */
 .hero-content {
     position: relative;
     z-index: 3;
@@ -607,7 +583,6 @@ button {
     padding: 0 20px;
 }
 
-/* Badge */
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -633,25 +608,15 @@ button {
 }
 
 @keyframes dotBlink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.4;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
 }
 
-/* Hero title */
 .hero-title {
     font-family: var(--font-display);
     font-size: clamp(2.5rem, 5.5vw, 4rem);
-    /* 4rem = 64px */
     font-weight: 600;
     line-height: 1.094;
-    /* 70/64 */
     color: #0D0D0D;
     margin-bottom: 20px;
     letter-spacing: -1.5px;
@@ -688,7 +653,6 @@ button {
     flex-wrap: wrap;
 }
 
-/* Sparkles */
 .sparkle {
     position: absolute;
     font-size: 1rem;
@@ -698,32 +662,11 @@ button {
     z-index: 1;
 }
 
-.sparkle-1 {
-    top: 20%;
-    left: 30%;
-    font-size: 0.7rem;
-}
+.sparkle-1 { top: 20%; left: 30%; font-size: 0.7rem; }
+.sparkle-2 { top: 40%; right: 28%; font-size: 1.2rem; }
+.sparkle-3 { bottom: 30%; left: 40%; font-size: 0.85rem; }
+.sparkle-4 { top: 15%; left: 55%; font-size: 0.65rem; opacity: 0.35; }
 
-.sparkle-2 {
-    top: 40%;
-    right: 28%;
-    font-size: 1.2rem;
-}
-
-.sparkle-3 {
-    bottom: 30%;
-    left: 40%;
-    font-size: 0.85rem;
-}
-
-.sparkle-4 {
-    top: 15%;
-    left: 55%;
-    font-size: 0.65rem;
-    opacity: 0.35;
-}
-
-/* Scroll indicator */
 .scroll-indicator {
     position: absolute;
     bottom: 32px;
@@ -752,28 +695,12 @@ button {
 }
 
 @keyframes scrollLine {
-    0% {
-        transform: scaleY(0);
-        transform-origin: top;
-    }
-
-    50% {
-        transform: scaleY(1);
-        transform-origin: top;
-    }
-
-    51% {
-        transform: scaleY(1);
-        transform-origin: bottom;
-    }
-
-    100% {
-        transform: scaleY(0);
-        transform-origin: bottom;
-    }
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
-/* Botões hero sobre fundo claro */
 #hero .btn-primary {
     background: #0D0D0D;
     color: #fff;
@@ -832,14 +759,12 @@ button {
     color: #fff;
 }
 
-/* Grid */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
 }
 
-/* Card */
 .project-card {
     border-radius: var(--radius-card);
     overflow: hidden;
@@ -853,7 +778,6 @@ button {
     overflow: hidden;
     border-radius: var(--radius-card);
     background: #1a1a1a;
-    /* fallback when image doesn't load */
 }
 
 .card-img-wrapper img {
@@ -1022,12 +946,15 @@ button {
 
 .about-title {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
     font-weight: 800;
     color: var(--text-dark);
     letter-spacing: -1px;
+    line-height: 1.1;
     margin-top: 12px;
     margin-bottom: 24px;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .about-text {
@@ -1292,7 +1219,6 @@ button {
     right: 0;
 }
 
-/* CTA decorações */
 .cta-sparkle {
     position: absolute;
     font-size: 1.2rem;
@@ -1301,23 +1227,9 @@ button {
     opacity: 0.4;
 }
 
-.cta-s1 {
-    top: 20%;
-    left: 10%;
-}
-
-.cta-s2 {
-    top: 60%;
-    right: 8%;
-    font-size: 0.8rem;
-}
-
-.cta-s3 {
-    bottom: 20%;
-    left: 35%;
-    font-size: 0.65rem;
-    opacity: 0.25;
-}
+.cta-s1 { top: 20%; left: 10%; }
+.cta-s2 { top: 60%; right: 8%; font-size: 0.8rem; }
+.cta-s3 { bottom: 20%; left: 35%; font-size: 0.65rem; opacity: 0.25; }
 
 .cta-planet {
     position: absolute;
@@ -1438,10 +1350,7 @@ button {
     overflow: hidden;
     position: relative;
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
-    /* GSAP controla transform e opacity — sem CSS transition aqui */
 }
-
-
 
 .modal-close {
     position: absolute;
@@ -1450,7 +1359,6 @@ button {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    /* Fundo semi-opaco com borda — visível em qualquer cor de fundo */
     background: rgba(255, 255, 255, 0.92);
     border: 1px solid rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8px);
@@ -1458,7 +1366,6 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Ícone sempre escuro para contrastar com fundo claro do botão */
     color: #0D0D0D;
     z-index: 20;
     transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
@@ -1478,7 +1385,6 @@ button {
     overflow: hidden;
 }
 
-/* Modal Carousel */
 .modal-carousel-section {
     background: #0a0a0a;
     display: flex;
@@ -1564,6 +1470,7 @@ button {
 .modal-info {
     padding: 48px 40px;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     display: flex;
     flex-direction: column;
 }
@@ -1608,17 +1515,9 @@ button {
     flex-wrap: wrap;
 }
 
-.about-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-    font-weight: 800;
-    color: var(--text-dark);
-    letter-spacing: -1px;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
 @media (max-width: 1024px) {
     .hero-astronaut {
         width: clamp(200px, 30vw, 320px);
@@ -1709,25 +1608,63 @@ button {
         display: none;
     }
 
-    /* Modal mobile fixes */
+    /* Modal mobile — scroll corrigido */
     .modal-overlay {
-        padding: 12px;
+        padding: 0;
         align-items: flex-end;
     }
 
     .modal-container {
-        max-height: 95vh;
-        border-radius: 20px 20px 16px 16px;
+        /* Altura máxima = 95% da viewport, com scroll interno garantido */
+        max-height: 95svh;
+        border-radius: 20px 20px 0 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
     }
 
     .modal-inner {
         grid-template-columns: 1fr;
-        max-height: 95vh;
+        /* Scroll interno funciona no iOS e Android */
+        flex: 1;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
     }
 
     .modal-carousel-section {
         min-height: 220px;
+        /* Imagem não encolhe ao scrollar */
+        flex-shrink: 0;
+    }
+
+    /* Botão X sempre visível em qualquer fundo */
+    .modal-close {
+        top: 12px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+        z-index: 30;
+    }
+
+    .modal-info {
+        padding: 28px 20px 40px;
+        /* Garante que o conteúdo seja scrollável dentro do modal-inner */
+        overflow-y: visible;
+    }
+
+    .modal-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-modal {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
     }
 
     /* Projetos mobile — esconder tech tags, manter nome + seta + ícone ⓘ */
@@ -1748,33 +1685,6 @@ button {
     .project-card.touched .card-info {
         opacity: 1;
         transform: translateY(0);
-    }
-
-    /* Fechar modal (mantido para compatibilidade) */
-    .modal-close {
-        top: 12px;
-        right: 12px;
-        width: 38px;
-        height: 38px;
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
-        z-index: 30;
-    }
-
-    .modal-info {
-        padding: 28px 20px 36px;
-    }
-
-    .modal-actions {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .btn-modal {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
     }
 }
 
