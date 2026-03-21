@@ -7,13 +7,16 @@
 
 /* ───────────────────────────────
    DADOS DOS PROJETOS
+   Ordem dos cards:
+   [0] Stranger Things  [1] Beach 085  [2] TechStore  [3] BotFlix
+   [4] Player de Música [5] Criador Mágico IA
+   [6] Lumina Solar     [7] Linkador Pessoal
+   [8] Feliz Aniversário Lívia (sozinha em desktop)
 ─────────────────────────────── */
 const PROJECTS = [
     {
         name: 'Stranger Things Experience',
-        images: [
-            'assets/mockup-projeto01.webp'
-        ],
+        images: ['assets/mockup-projeto01.webp'],
         url: 'https://tuliovitor.github.io/stranger-things',
         github: 'https://github.com/tuliovitor/stranger-things',
         tech: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
@@ -21,9 +24,7 @@ const PROJECTS = [
     },
     {
         name: 'Beach 085 Coast Company',
-        images: [
-            'assets/mockup-projeto02.webp'
-        ],
+        images: ['assets/mockup-projeto02.webp'],
         url: 'https://tuliovitor.github.io/beach-085-site',
         github: 'https://github.com/tuliovitor/beach-085-site',
         tech: ['HTML', 'CSS', 'JavaScript'],
@@ -31,29 +32,23 @@ const PROJECTS = [
     },
     {
         name: 'TechStore',
-        images: [
-            'assets/mockup-projeto03.webp'
-        ],
+        images: ['assets/mockup-projeto03.webp'],
         url: 'https://tuliovitor.github.io/tech-store',
         github: 'https://github.com/tuliovitor/tech-store',
         tech: ['HTML', 'CSS', 'JavaScript'],
         desc: 'E-commerce de tecnologia com banner de Black Friday, filtragem de produtos por categoria, cards com preços e sistema de busca. Design tech com identidade visual marcante e responsividade.'
     },
     {
-        name: 'Linkador Pessoal',
-        images: [
-            'assets/mockup-projeto04.webp'
-        ],
-        url: 'https://tuliovitor.github.io/links-portfolio',
-        github: 'https://github.com/tuliovitor/links-portfolio',
-        tech: ['HTML', 'CSS'],
-        desc: 'Link-in-bio page com dark/light mode toggle. Interface minimalista centralizada com navegação rápida para portfólio, serviços e contato. Alternância de tema suave entre modo escuro e claro.'
+        name: 'BotFlix',
+        images: ['assets/mockup-projeto04.webp'],
+        url: 'https://tuliovitor.github.io/botflix',
+        github: 'https://github.com/tuliovitor/botflix',
+        tech: ['HTML', 'CSS', 'JavaScript', 'N8N', 'TMDB', 'Grok AI'],
+        desc: 'Assistente de cinema com IA integrada que recebe o humor do usuário e recomenda o filme perfeito para o momento. O usuário descreve como está se sentindo — e o BotFlix usa um fluxo N8N com Grok AI para interpretar o contexto emocional, buscar o filme ideal e retornar poster, sinopse e uma explicação personalizada de por que aquele filme combina com aquela hora.'
     },
     {
         name: 'Player de Música',
-        images: [
-            'assets/mockup-projeto05.webp'
-        ],
+        images: ['assets/mockup-projeto05.webp'],
         url: 'https://tuliovitor.github.io/player-de-musica',
         github: 'https://github.com/tuliovitor/player-de-musica',
         tech: ['HTML', 'CSS'],
@@ -61,9 +56,7 @@ const PROJECTS = [
     },
     {
         name: 'Criador Mágico com IA',
-        images: [
-            'assets/mockup-projeto06.webp'
-        ],
+        images: ['assets/mockup-projeto06.webp'],
         url: 'https://tuliovitor.github.io/criador-magico-ia',
         github: 'https://github.com/tuliovitor/criador-magico-ia',
         tech: ['HTML', 'CSS', 'JavaScript', 'N8N'],
@@ -71,19 +64,23 @@ const PROJECTS = [
     },
     {
         name: 'Lumina Solar',
-        images: [
-            'assets/mockup-projeto07.webp'
-        ],
+        images: ['assets/mockup-projeto07.webp'],
         url: 'https://luminasolarenergy.com.br',
         github: 'https://github.com/tuliovitor/lumina-solar',
         tech: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Lenis', 'ScrollTrigger'],
         desc: 'Site institucional para empresa de energia solar fotovoltaica no Ceará — cliente real. Desenvolvido com slider horizontal fixado por GSAP ScrollTrigger, vídeo hero otimizado com poster, mapa lazy do Google Maps, animações de contadores, preloader customizado, WhatsApp flutuante e SEO completo. Projeto responsivo com foco em conversão de leads.'
     },
     {
+        name: 'Linkador Pessoal',
+        images: ['assets/mockup-projeto08.webp'],
+        url: 'https://tuliovitor.github.io/links-portfolio',
+        github: 'https://github.com/tuliovitor/links-portfolio',
+        tech: ['HTML', 'CSS'],
+        desc: 'Link-in-bio page com dark/light mode toggle. Interface minimalista centralizada com navegação rápida para portfólio, serviços e contato. Alternância de tema suave entre modo escuro e claro.'
+    },
+    {
         name: 'Feliz Aniversário Lívia',
-        images: [
-            'assets/mockup-projeto08.webp'
-        ],
+        images: ['assets/mockup-projeto09.webp'],
         url: 'https://tuliovitor.github.io/feliz-aniversario-livia',
         github: 'https://github.com/tuliovitor/feliz-aniversario-livia',
         tech: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Lenis'],
@@ -558,12 +555,10 @@ function openModal(projectIndex) {
     gsap.killTweensOf(container);
     gsap.set(container, { y: 28, opacity: 0, scale: 0.97 });
 
-    // Bloqueia scroll da página mas permite scroll interno do modal
     document.body.style.overflow = 'hidden';
     if (lenisInstance) lenisInstance.stop();
     overlay.classList.add('open');
 
-    // Resetar scroll interno do modal-info ao abrir
     const modalInfo = $('#modal-container').querySelector('.modal-info');
     if (modalInfo) modalInfo.scrollTop = 0;
 
