@@ -85,6 +85,14 @@ const PROJECTS = [
         github: 'https://github.com/tuliovitor/feliz-aniversario-livia',
         tech: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Lenis'],
         desc: 'Site surpresa de aniversário para uma amiga. Experiência imersiva com slider horizontal de cards, memorial com SVG path animado e polaroids, carta interativa com animações de entrada, countdown em tempo real para o próximo aniversário e sistema de celebração com confetes e faíscas em Canvas. Uma das produções mais técnicas e emocionais do portfólio.'
+    },
+    {
+        name: 'Tradutor IA',
+        images: ['assets/mockup-projeto10.webp'],
+        url: 'https://tuliovitor.github.io/tradutor-ia',
+        github: 'https://github.com/tuliovitor/tradutor-ia',
+        tech: ['HTML', 'CSS', 'JavaScript', 'MyMemory API', 'Web Speech API'],
+        desc: 'Tradutor com integração à API MyMemory que converte texto de português para inglês, alemão e japonês em tempo real. Conta com reconhecimento de voz via Web Speech API — o usuário fala e o texto é capturado e traduzido automaticamente. O fundo com mapa-múndi reforça visualmente o conceito de comunicação sem fronteiras.'
     }
 ];
 
