@@ -492,10 +492,22 @@ function initModal() {
                     $$('.project-card.touched').forEach(c => c.classList.remove('touched'));
                     card.classList.add('touched');
                 } else {
-                    if (project && project.url) window.open(project.url, '_blank', 'noopener,noreferrer');
+                    if (project && project.url) {
+                        // Microsoft Clarity — rastreia quem foi ao site ao vivo (mobile: 2º toque)
+                        if (typeof clarity === 'function') {
+                            clarity('event', `visit_${project.name.replace(/\s+/g, '_')}`);
+                        }
+                        window.open(project.url, '_blank', 'noopener,noreferrer');
+                    }
                 }
             } else {
-                if (project && project.url) window.open(project.url, '_blank', 'noopener,noreferrer');
+                if (project && project.url) {
+                    // Microsoft Clarity — rastreia quem foi ao site ao vivo (desktop: clique direto)
+                    if (typeof clarity === 'function') {
+                        clarity('event', `visit_${project.name.replace(/\s+/g, '_')}`);
+                    }
+                    window.open(project.url, '_blank', 'noopener,noreferrer');
+                }
             }
         });
 
@@ -529,6 +541,11 @@ function initModal() {
 function openModal(projectIndex) {
     const project = PROJECTS[projectIndex];
     if (!project) return;
+
+    // Microsoft Clarity — rastreia qual projeto teve o modal aberto (ícone ⓘ)
+    if (typeof clarity === 'function') {
+        clarity('event', `modal_${project.name.replace(/\s+/g, '_')}`);
+    }
 
     activeModalProject = project;
     activeModalCarouselIndex = 0;
