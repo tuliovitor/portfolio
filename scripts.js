@@ -8,10 +8,9 @@
 /* ───────────────────────────────
    DADOS DOS PROJETOS
    Ordem dos cards:
-   [0] Stranger Things  [1] Beach 085  [2] TechStore  [3] BotFlix
-   [4] Player de Música [5] Criador Mágico IA
-   [6] Lumina Solar     [7] Linkador Pessoal
-   [8] Feliz Aniversário Lívia (sozinha em desktop)
+   [0] Stranger Things  [1] Beach 085   [2] TechStore      [3] BotFlix
+   [4] Player de Música [5] Criador IA  [6] Lumina Solar   [7] Linkador Pessoal
+   [8] Nike Air Zoom    [9] Gerador QR  [10] Lívia         [11] Tradutor IA
 ─────────────────────────────── */
 const PROJECTS = [
     {
@@ -79,8 +78,24 @@ const PROJECTS = [
         desc: 'Link-in-bio page com dark/light mode toggle. Interface minimalista centralizada com navegação rápida para portfólio, serviços e contato. Alternância de tema suave entre modo escuro e claro.'
     },
     {
-        name: 'Feliz Aniversário Lívia',
+        name: 'Nike Air Zoom',
         images: ['assets/mockup-projeto09.webp'],
+        url: 'https://tuliovitor.github.io/nike',
+        github: 'https://github.com/tuliovitor/nike',
+        tech: ['HTML', 'CSS', 'JavaScript'],
+        desc: 'Landing page de produto inspirada na Nike com troca dinâmica de colorway — ao selecionar uma cor, o background, o botão e o tênis mudam simultaneamente com transições CSS suaves. O tênis reage ao movimento do mouse com parallax, flutua em loop com animação keyframe e o botão de carrinho possui ripple effect no clique. Cada detalhe foi pensado para simular uma experiência de e-commerce premium.'
+    },
+    {
+        name: 'Gerador QR',
+        images: ['assets/mockup-projeto10.webp'],
+        url: 'https://tuliovitor.github.io/gerador-qr-code',
+        github: 'https://github.com/tuliovitor/gerador-qr-code',
+        tech: ['HTML', 'CSS', 'JavaScript', 'goQR API'],
+        desc: 'Gerador de QR Code instantâneo que converte qualquer URL ou texto em QR Code usando a goQR.me API. Interface dark com glassmorphism, partículas animadas em gradiente roxo e ciano no fundo, e feedback visual em cada interação — animação de shake no input inválido, loading no botão durante a geração e download direto em PNG. Digitou, gerou, baixou.'
+    },
+    {
+        name: 'Feliz Aniversário Lívia',
+        images: ['assets/mockup-projeto11.webp'],
         url: 'https://tuliovitor.github.io/feliz-aniversario-livia',
         github: 'https://github.com/tuliovitor/feliz-aniversario-livia',
         tech: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Lenis'],
@@ -88,7 +103,7 @@ const PROJECTS = [
     },
     {
         name: 'Tradutor IA',
-        images: ['assets/mockup-projeto10.webp'],
+        images: ['assets/mockup-projeto12.webp'],
         url: 'https://tuliovitor.github.io/tradutor-ia',
         github: 'https://github.com/tuliovitor/tradutor-ia',
         tech: ['HTML', 'CSS', 'JavaScript', 'MyMemory API', 'Web Speech API'],
