@@ -8,9 +8,10 @@
 /* ───────────────────────────────
    DADOS DOS PROJETOS
    Ordem dos cards:
-   [0] Stranger Things  [1] Beach 085   [2] TechStore      [3] BotFlix
-   [4] Player de Música [5] Criador IA  [6] Lumina Solar   [7] Linkador Pessoal
-   [8] Nike Air Zoom    [9] Gerador QR  [10] Lívia         [11] Tradutor IA
+   [0] Stranger Things  [1] Beach 085   [2] TechStore        [3] BotFlix
+   [4] Player de Música [5] Criador IA  [6] Lumina Solar     [7] Linkador Pessoal
+   [8] Nike Air Zoom    [9] Gerador QR  [10] WeatherNow      [11] Tradutor IA
+   [12] Lívia           [13] Fluencify
 ─────────────────────────────── */
 const PROJECTS = [
     {
@@ -80,26 +81,26 @@ const PROJECTS = [
     {
         name: 'Nike Air Zoom',
         images: ['assets/mockup-projeto09.webp'],
-        url: 'https://tuliovitor.github.io/nike',
-        github: 'https://github.com/tuliovitor/nike',
+        url: 'https://tuliovitor.github.io/nike-air-zoom',
+        github: 'https://github.com/tuliovitor/nike-air-zoom',
         tech: ['HTML', 'CSS', 'JavaScript'],
         desc: 'Landing page de produto inspirada na Nike com troca dinâmica de colorway — ao selecionar uma cor, o background, o botão e o tênis mudam simultaneamente com transições CSS suaves. O tênis reage ao movimento do mouse com parallax, flutua em loop com animação keyframe e o botão de carrinho possui ripple effect no clique. Cada detalhe foi pensado para simular uma experiência de e-commerce premium.'
     },
     {
         name: 'Gerador QR',
         images: ['assets/mockup-projeto10.webp'],
-        url: 'https://tuliovitor.github.io/gerador-qr-code',
-        github: 'https://github.com/tuliovitor/gerador-qr-code',
+        url: 'https://tuliovitor.github.io/gerador-qr',
+        github: 'https://github.com/tuliovitor/gerador-qr',
         tech: ['HTML', 'CSS', 'JavaScript', 'goQR API'],
         desc: 'Gerador de QR Code instantâneo que converte qualquer URL ou texto em QR Code usando a goQR.me API. Interface dark com glassmorphism, partículas animadas em gradiente roxo e ciano no fundo, e feedback visual em cada interação — animação de shake no input inválido, loading no botão durante a geração e download direto em PNG. Digitou, gerou, baixou.'
     },
     {
-        name: 'Feliz Aniversário Lívia',
+        name: 'WeatherNow',
         images: ['assets/mockup-projeto11.webp'],
-        url: 'https://tuliovitor.github.io/feliz-aniversario-livia',
-        github: 'https://github.com/tuliovitor/feliz-aniversario-livia',
-        tech: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Lenis'],
-        desc: 'Site surpresa de aniversário para uma amiga. Experiência imersiva com slider horizontal de cards, memorial com SVG path animado e polaroids, carta interativa com animações de entrada, countdown em tempo real para o próximo aniversário e sistema de celebração com confetes e faíscas em Canvas. Uma das produções mais técnicas e emocionais do portfólio.'
+        url: 'https://tuliovitor.github.io/weather-now',
+        github: 'https://github.com/tuliovitor/weather-now',
+        tech: ['React Native', 'Expo', 'JavaScript', 'OpenWeatherMap API'],
+        desc: 'App mobile de clima em tempo real construído com React Native e Expo. Detecta automaticamente a localização do usuário via GPS e consulta a OpenWeatherMap API para exibir temperatura, sensação térmica, umidade e velocidade do vento. O background do app muda de cor dinamicamente conforme a condição climática atual — azul para céu limpo, cinza para nublado, azul-petróleo para chuva. Primeiro projeto desenvolvido com React Native.'
     },
     {
         name: 'Tradutor IA',
@@ -108,6 +109,22 @@ const PROJECTS = [
         github: 'https://github.com/tuliovitor/tradutor-ia',
         tech: ['HTML', 'CSS', 'JavaScript', 'MyMemory API', 'Web Speech API'],
         desc: 'Tradutor com integração à API MyMemory que converte texto de português para inglês, alemão e japonês em tempo real. Conta com reconhecimento de voz via Web Speech API — o usuário fala e o texto é capturado e traduzido automaticamente. O fundo com mapa-múndi reforça visualmente o conceito de comunicação sem fronteiras.'
+    },
+    {
+        name: 'Feliz Aniversário Lívia',
+        images: ['assets/mockup-projeto13.webp'],
+        url: 'https://tuliovitor.github.io/feliz-aniversario-livia',
+        github: 'https://github.com/tuliovitor/feliz-aniversario-livia',
+        tech: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Lenis'],
+        desc: 'Site surpresa de aniversário para uma amiga. Experiência imersiva com slider horizontal de cards, memorial com SVG path animado e polaroids, carta interativa com animações de entrada, countdown em tempo real para o próximo aniversário e sistema de celebração com confetes e faíscas em Canvas. Uma das produções mais técnicas e emocionais do portfólio.'
+    },
+    {
+        name: 'Fluencify',
+        images: ['assets/mockup-projeto14.webp'],
+        url: 'https://tuliovitor.github.io/fluencify',
+        github: 'https://github.com/tuliovitor/fluencify',
+        tech: ['HTML', 'CSS', 'JavaScript', 'N8N'],
+        desc: 'Tutor de inglês com IA que escuta o usuário falar, envia o áudio transcrito para um fluxo N8N com IA integrada e retorna feedback personalizado com correções de pronúncia em tempo real. A resposta é lida em voz alta com Text-to-Speech bilíngue — detectando automaticamente trechos em português e inglês e aplicando a voz correta para cada idioma. Desenvolvido para brasileiros que querem superar o bloqueio de falar inglês.'
     }
 ];
 
