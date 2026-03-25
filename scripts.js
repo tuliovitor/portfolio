@@ -81,16 +81,16 @@ const PROJECTS = [
     {
         name: 'Nike Air Zoom',
         images: ['assets/mockup-projeto09.webp'],
-        url: 'https://tuliovitor.github.io/nike-air-zoom',
-        github: 'https://github.com/tuliovitor/nike-air-zoom',
+        url: 'https://tuliovitor.github.io/nike',
+        github: 'https://github.com/tuliovitor/nike,
         tech: ['HTML', 'CSS', 'JavaScript'],
         desc: 'Landing page de produto inspirada na Nike com troca dinâmica de colorway — ao selecionar uma cor, o background, o botão e o tênis mudam simultaneamente com transições CSS suaves. O tênis reage ao movimento do mouse com parallax, flutua em loop com animação keyframe e o botão de carrinho possui ripple effect no clique. Cada detalhe foi pensado para simular uma experiência de e-commerce premium.'
     },
     {
         name: 'Gerador QR',
         images: ['assets/mockup-projeto10.webp'],
-        url: 'https://tuliovitor.github.io/gerador-qr',
-        github: 'https://github.com/tuliovitor/gerador-qr',
+        url: 'https://tuliovitor.github.io/gerador-qr-code',
+        github: 'https://github.com/tuliovitor/gerador-qr-code',
         tech: ['HTML', 'CSS', 'JavaScript', 'goQR API'],
         desc: 'Gerador de QR Code instantâneo que converte qualquer URL ou texto em QR Code usando a goQR.me API. Interface dark com glassmorphism, partículas animadas em gradiente roxo e ciano no fundo, e feedback visual em cada interação — animação de shake no input inválido, loading no botão durante a geração e download direto em PNG. Digitou, gerou, baixou.'
     },
