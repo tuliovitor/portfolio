@@ -110,9 +110,28 @@ const PROJECTS = [
         tech: ['HTML', 'CSS', 'JavaScript', 'MyMemory API', 'Web Speech API'],
         desc: 'Tradutor com integração à API MyMemory que converte texto de português para inglês, alemão e japonês em tempo real. Conta com reconhecimento de voz via Web Speech API — o usuário fala e o texto é capturado e traduzido automaticamente. O fundo com mapa-múndi reforça visualmente o conceito de comunicação sem fronteiras.'
     },
+
+    {
+        name: 'Veredito NJR',
+        images: ['assets/mockup-projeto13.webp'],
+        url: 'https://tuliovitor.github.io/veredito-njr',
+        github: 'https://github.com/tuliovitor/veredito-njr',
+        tech: ['HTML', 'CSS', 'JavaScript', 'Supabase'],
+        desc: 'Aplicação de votação em tempo real sobre a convocação do Neymar para a Copa do Mundo. O usuário informa o nome, vota Sim ou Não, e as barras de porcentagem animam instantaneamente com os dados de todos os votantes — sincronizados via Supabase Realtime. Primeiro projeto com banco de dados integrado: arquitetura de 3 arquivos, RLS configurado, canal de tempo real ativo e proteção contra voto duplicado via localStorage.'
+    },
+
+    {
+        name: 'Visionary Study',
+        images: ['assets/mockup-projeto14.webp'],
+        url: 'https://www.figma.com/design/YRPn7BYO724Njz55FPG6FB/Untitled?node-id=0-1&m=dev&t=0uOnhQXmHfH46TWL-1',
+        github: 'https://www.figma.com/design/YRPn7BYO724Njz55FPG6FB/Untitled?node-id=0-1&m=dev&t=0uOnhQXmHfH46TWL-1',
+        tech: ['Figma', 'UI Design', 'IA Generativa'],
+        desc: 'Projeto de design criado para um grupo de estudos de inglês. O objetivo foi desenvolver uma identidade visual moderna e inspiradora, utilizando ferramentas de IA generativa para auxiliar na criação de elementos visuais únicos. O design inclui um moodboard detalhado, paleta de cores, tipografia e sugestões de layout para materiais de estudo.'
+    },
+
     {
         name: 'Feliz Aniversário Lívia',
-        images: ['assets/mockup-projeto13.webp'],
+        images: ['assets/mockup-projeto15.webp'],
         url: 'https://tuliovitor.github.io/feliz-aniversario-livia',
         github: 'https://github.com/tuliovitor/feliz-aniversario-livia',
         tech: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Lenis'],
@@ -120,7 +139,7 @@ const PROJECTS = [
     },
     {
         name: 'Fluencify',
-        images: ['assets/mockup-projeto14.webp'],
+        images: ['assets/mockup-projeto16.webp'],
         url: 'https://tuliovitor.github.io/fluencify',
         github: 'https://github.com/tuliovitor/fluencify',
         tech: ['HTML', 'CSS', 'JavaScript', 'N8N'],
@@ -586,6 +605,25 @@ function openModal(projectIndex) {
     $('#modal-desc').textContent = project.desc;
     $('#modal-live').href = project.url;
     $('#modal-github').href = project.github;
+
+    const liveBtn = $('#modal-live');
+    const githubBtn = $('#modal-github');
+    
+    // Reset para o padrão (evita que um modal de design influencie o próximo modal aberto)
+    liveBtn.querySelector('.btn-text-top').innerHTML = 'Ver ao vivo ↗';
+    liveBtn.querySelector('.btn-text-bottom').innerHTML = 'Ver ao vivo ↗';
+    githubBtn.querySelector('.btn-text-top').innerHTML = 'Ver código';
+    githubBtn.querySelector('.btn-text-bottom').innerHTML = 'Ver código';
+    githubBtn.style.display = 'inline-flex';
+
+    // Diferenciação para projetos de Design (como Visionary Study)
+    if (project.tech.includes('Figma') || project.tech.includes('UI Design')) {
+        liveBtn.querySelector('.btn-text-top').innerHTML = 'Ver no Figma ↗';
+        liveBtn.querySelector('.btn-text-bottom').innerHTML = 'Abrir Projeto ↗';
+        
+        githubBtn.querySelector('.btn-text-top').innerHTML = 'Acessar Design';
+        githubBtn.querySelector('.btn-text-bottom').innerHTML = 'Figma Layout';
+    }
 
     const tagsEl = $('#modal-tags');
     tagsEl.innerHTML = project.tech.map(t =>
