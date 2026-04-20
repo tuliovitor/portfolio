@@ -147,6 +147,14 @@ const PROJECTS = [
         desc: 'Site surpresa de aniversário para uma amiga. Experiência imersiva com slider horizontal de cards, memorial com SVG path animado e polaroids, carta interativa com animações de entrada, countdown em tempo real para o próximo aniversário e sistema de celebração com confetes e faíscas em Canvas. Uma das produções mais técnicas e emocionais do portfólio.'
     },
 
+    {
+        name: 'Mario Galaxy',
+        images: ['assets/mockup-projeto18.webp'],
+        url: 'https://tuliovitor.github.io/mario-galaxy',
+        github: 'https://github.com/tuliovitor/mario-galaxy',
+        tech: ['HTML', 'CSS', 'JavaScript | Three JS', 'GSAP'],
+        desc: 'Landing page cinematográfica inspirada no filme do universo Mario, em desenvolvimento ativo durante a jornada ao vivo Dev em Dobro. Fundo espacial com planeta Terra fotorrealista, personagens flutuando em parallax, tipografia display em duas cores e animações GSAP com ScrollTrigger. Projeto em desenvolvimento ativo — cada sessão do evento adiciona uma nova camada ao resultado final.'
+    }
 ];
 
 /* ───────────────────────────────
