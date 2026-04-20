@@ -5,14 +5,6 @@
 
 'use strict';
 
-/* ───────────────────────────────
-   DADOS DOS PROJETOS
-   Ordem dos cards:
-   [0] Stranger Things  [1] Beach 085   [2] TechStore        [3] BotFlix
-   [4] Player de Música [5] Criador IA  [6] Lumina Solar     [7] Linkador Pessoal
-   [8] Nike Air Zoom    [9] Gerador QR  [10] WeatherNow      [11] Tradutor IA
-   [12] Lívia           [13] Fluencify
-─────────────────────────────── */
 const PROJECTS = [
     {
         name: 'Stranger Things Experience',
