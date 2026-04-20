@@ -130,12 +130,12 @@ const PROJECTS = [
     },
 
     {
-        name: 'Feliz Aniversário Lívia',
+        name: 'Nubank Reimagined',
         images: ['assets/mockup-projeto15.webp'],
-        url: 'https://tuliovitor.github.io/feliz-aniversario-livia',
-        github: 'https://github.com/tuliovitor/feliz-aniversario-livia',
-        tech: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Lenis'],
-        desc: 'Site surpresa de aniversário para uma amiga. Experiência imersiva com slider horizontal de cards, memorial com SVG path animado e polaroids, carta interativa com animações de entrada, countdown em tempo real para o próximo aniversário e sistema de celebração com confetes e faíscas em Canvas. Uma das produções mais técnicas e emocionais do portfólio.'
+        url: 'https://tuliovitor.github.io/nubank',
+        github: 'https://github.com/tuliovitor/nubank',
+        tech: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
+        desc: 'Landing page inspirada no Nubank, desenvolvida seguindo um projeto guiado do DevClub como exercício de aprendizado. O HTML e CSS foram construídos durante o curso — e como diferencial próprio, integrei a biblioteca GSAP com ScrollSmoother, SplitText e ScrollTrigger para adicionar scroll suave, animação caractere por caractere no H1 e entradas progressivas em todas as seções. A parte de animação foi inteiramente minha iniciativa.'
     },
     {
         name: 'Fluencify',
@@ -144,7 +144,17 @@ const PROJECTS = [
         github: 'https://github.com/tuliovitor/fluencify',
         tech: ['HTML', 'CSS', 'JavaScript', 'N8N'],
         desc: 'Tutor de inglês com IA que escuta o usuário falar, envia o áudio transcrito para um fluxo N8N com IA integrada e retorna feedback personalizado com correções de pronúncia em tempo real. A resposta é lida em voz alta com Text-to-Speech bilíngue — detectando automaticamente trechos em português e inglês e aplicando a voz correta para cada idioma. Desenvolvido para brasileiros que querem superar o bloqueio de falar inglês.'
-    }
+    },
+
+    {
+        name: 'Feliz Aniversário Lívia',
+        images: ['assets/mockup-projeto17.webp'],
+        url: 'https://tuliovitor.github.io/feliz-aniversario-livia',
+        github: 'https://github.com/tuliovitor/feliz-aniversario-livia',
+        tech: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Lenis'],
+        desc: 'Site surpresa de aniversário para uma amiga. Experiência imersiva com slider horizontal de cards, memorial com SVG path animado e polaroids, carta interativa com animações de entrada, countdown em tempo real para o próximo aniversário e sistema de celebração com confetes e faíscas em Canvas. Uma das produções mais técnicas e emocionais do portfólio.'
+    },
+
 ];
 
 /* ───────────────────────────────
