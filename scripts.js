@@ -89,7 +89,7 @@ const PROJECTS = [
     {
         name: 'WeatherNow',
         images: ['assets/mockup-projeto11.webp'],
-        url: 'https://tuliovitor.github.io/weather-now',
+        url: 'https://github.com/tuliovitor/weather-now',
         github: 'https://github.com/tuliovitor/weather-now',
         tech: ['React Native', 'Expo', 'JavaScript', 'OpenWeatherMap API'],
         desc: 'App mobile de clima em tempo real construído com React Native e Expo. Detecta automaticamente a localização do usuário via GPS e consulta a OpenWeatherMap API para exibir temperatura, sensação térmica, umidade e velocidade do vento. O background do app muda de cor dinamicamente conforme a condição climática atual — azul para céu limpo, cinza para nublado, azul-petróleo para chuva. Primeiro projeto desenvolvido com React Native.'
@@ -150,8 +150,8 @@ const PROJECTS = [
     {
         name: 'Mario Galaxy',
         images: ['assets/mockup-projeto18.webp'],
-        url: 'https://tuliovitor.github.io/mario-galaxy',
-        github: 'https://github.com/tuliovitor/mario-galaxy',
+        url: '',
+        github: '',
         tech: ['HTML', 'CSS', 'JavaScript | Three JS', 'GSAP'],
         desc: 'Landing page cinematográfica inspirada no filme do universo Mario, em desenvolvimento ativo durante a jornada ao vivo Dev em Dobro. Fundo espacial com planeta Terra fotorrealista, personagens flutuando em parallax, tipografia display em duas cores e animações GSAP com ScrollTrigger. Projeto em desenvolvimento ativo — cada sessão do evento adiciona uma nova camada ao resultado final.'
     }
