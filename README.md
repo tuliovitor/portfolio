@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Tulio Vítor | Portfólio
+# 🌟 Tulio Vítor | Portfólio
 
 **O próprio portfólio. Construído do zero, com referências reais e decisões técnicas intencionais.**
 
