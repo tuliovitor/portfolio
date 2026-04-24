@@ -2,7 +2,7 @@
 
 # ⭐ Tulio Vítor | Portfólio
 
-**O próprio portfólio. Construído do zero, com referências reais e decisões técnicas intencionais.**
+**O próprio portfólio. Construído com propósito, com referências reais e decisões técnicas intencionais.**
 
 ![Preview Desktop](./assets/preview-desktop.png)
 
