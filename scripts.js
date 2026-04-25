@@ -15,12 +15,12 @@ const PROJECTS = [
         desc: 'Landing page temática inspirada na campanha Netflix "Stranger Things: The Experience". Design cinematográfico, dark mode imersivo, tipografia editorial e seção de seleção de cidades com cards ilustrados.'
     },
     {
-        name: 'Beach 085 Coast Company',
+        name: 'WeatherNow',
         images: ['assets/mockup-projeto02.webp'],
-        url: 'https://tuliovitor.github.io/beach-085-site',
-        github: 'https://github.com/tuliovitor/beach-085-site',
-        tech: ['HTML', 'CSS', 'JavaScript'],
-        desc: 'E-commerce de acessórios de praia com identidade visual costeira. Design vibrante com produtos em destaque, badges promocionais, seção de valores da marca e experiência de verão responsiva.'
+        url: 'https://github.com/tuliovitor/weather-now',
+        github: 'https://github.com/tuliovitor/weather-now',
+        tech: ['React Native', 'Expo', 'JavaScript', 'OpenWeatherMap API'],
+        desc: 'App mobile de clima em tempo real construído com React Native e Expo. Detecta automaticamente a localização do usuário via GPS e consulta a OpenWeatherMap API para exibir temperatura, sensação térmica, umidade e velocidade do vento. O background do app muda de cor dinamicamente conforme a condição climática atual — azul para céu limpo, cinza para nublado, azul-petróleo para chuva. Primeiro projeto desenvolvido com React Native.'
     },
     {
         name: 'TechStore',
@@ -87,12 +87,12 @@ const PROJECTS = [
         desc: 'Gerador de QR Code instantâneo que converte qualquer URL ou texto em QR Code usando a goQR.me API. Interface dark com glassmorphism, partículas animadas em gradiente roxo e ciano no fundo, e feedback visual em cada interação — animação de shake no input inválido, loading no botão durante a geração e download direto em PNG. Digitou, gerou, baixou.'
     },
     {
-        name: 'WeatherNow',
+        name: 'Beach 085',
         images: ['assets/mockup-projeto11.webp'],
-        url: 'https://tuliovitor.github.io/weather-now',
-        github: 'https://github.com/tuliovitor/weather-now',
-        tech: ['React Native', 'Expo', 'JavaScript', 'OpenWeatherMap API'],
-        desc: 'App mobile de clima em tempo real construído com React Native e Expo. Detecta automaticamente a localização do usuário via GPS e consulta a OpenWeatherMap API para exibir temperatura, sensação térmica, umidade e velocidade do vento. O background do app muda de cor dinamicamente conforme a condição climática atual — azul para céu limpo, cinza para nublado, azul-petróleo para chuva. Primeiro projeto desenvolvido com React Native.'
+        url: 'https://tuliovitor.github.io/beach-085-site',
+        github: 'https://github.com/tuliovitor/beach-085-site',
+        tech: ['HTML', 'CSS', 'JavaScript'],
+        desc: 'E-commerce de acessórios de praia com identidade visual costeira. Design vibrante com produtos em destaque, badges promocionais, seção de valores da marca e experiência de verão responsiva.'
     },
     {
         name: 'Tradutor IA',
@@ -150,8 +150,8 @@ const PROJECTS = [
     {
         name: 'Mario Galaxy',
         images: ['assets/mockup-projeto18.webp'],
-        url: 'https://tuliovitor.github.io/mario-galaxy',
-        github: 'https://github.com/tuliovitor/mario-galaxy',
+        url: '',
+        github: '',
         tech: ['HTML', 'CSS', 'JavaScript | Three JS', 'GSAP'],
         desc: 'Landing page cinematográfica inspirada no filme do universo Mario, em desenvolvimento ativo durante a jornada ao vivo Dev em Dobro. Fundo espacial com planeta Terra fotorrealista, personagens flutuando em parallax, tipografia display em duas cores e animações GSAP com ScrollTrigger. Projeto em desenvolvimento ativo — cada sessão do evento adiciona uma nova camada ao resultado final.'
     }
