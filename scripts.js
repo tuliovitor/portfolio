@@ -148,6 +148,15 @@ const PROJECTS = [
     },
 
     {
+        name: 'Ayssa Lima | Designer',
+        images: ['assets/mockup-projeto18.webp'],
+        url: 'https://ayssalima.github.io/portfolio',
+        github: 'https://github.com/ayssalima/portfolio',
+        tech: ['HTML', 'CSS', 'JavaScript'],
+        desc: 'Portfólio profissional desenvolvido para Ayssa Lima, designer e estudante de TI, criado para apoiar sua candidatura a uma vaga de estágio. Estrutura em HTML, CSS e JavaScript com header fixo com glassmorphism, scroll spy que destaca o item de navegação ativo conforme a seção, carrossel de fotos com fade automático, marquee de vídeos com autoplay vinculado ao viewport, timeline animada com draw-in e menu mobile completo com overlay.'
+    },
+
+    {
         name: 'Mario Galaxy',
         images: ['assets/mockup-projeto18.webp'],
         url: '',
